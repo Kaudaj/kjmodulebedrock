@@ -8,7 +8,7 @@
 
 ## About
 
-Module for PrestaShop.
+Module for PrestaShop :<br>
 Boost module development by providing a solid bedrock.
 
 ## Contact
