@@ -13,7 +13,7 @@ Boost module development by providing a solid bedrock.
 
 ## Reporting issues
 
-You can report issues with this module in the main PrestaShop repository. [Click here to report an issue][report-issue]. 
+You can report issues with this module in this very repository. [Click here to report an issue][report-issue]. 
 
 ## Multistore compatibility
 
