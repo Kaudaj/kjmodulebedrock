@@ -35,7 +35,7 @@ class KJModuleBedrock extends Module
     public function __construct()
     {
         $this->name = 'kjmodulebedrock';
-        $this->tab = 'other';
+        $this->tab = 'others';
         $this->version = '1.0.0';
         $this->author = 'Kaudaj';
 
