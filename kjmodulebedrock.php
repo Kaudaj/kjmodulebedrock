@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright since 2020 Kaudaj
+ * Copyright since 2019 Kaudaj
  *
  * NOTICE OF LICENSE
  *
@@ -16,6 +16,7 @@
  * @copyright Since 2019 Kaudaj
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  */
+
 if (!defined('_PS_VERSION_')) {
     exit;
 }

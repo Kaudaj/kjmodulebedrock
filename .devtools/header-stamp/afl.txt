@@ -1,5 +1,5 @@
 /**
- * Copyright since 2020 Kaudaj
+ * Copyright since 2019 Kaudaj
  *
  * NOTICE OF LICENSE
  *
