@@ -29,4 +29,6 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: ${{ github.event.repository.name }}
-          path: ../
+          path: |
+            ../
+            !.devtools/
