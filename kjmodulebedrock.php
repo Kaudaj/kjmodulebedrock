@@ -164,12 +164,13 @@ class KJModuleBedrock extends Module
                     ],
                     'input' => [
                         [
-                            'col' => 3,
-                            'type' => 'text',
-                            'prefix' => '<i class="icon icon-cogs"></i>',
-                            'desc' => $this->l('Describe the setting'),
                             'name' => 'KJMODULEBEDROCK_EXAMPLE_SETTING',
                             'label' => $this->l('Example setting'),
+                            'type' => 'text',
+                            'prefix' => '<i class="icon icon-cogs"></i>',
+                            'col' => 3,
+                            'desc' => $this->l('Describe the setting'),
+                            'hint' => $this->l('Help the user here'),
                         ],
                     ],
                     'submit' => [
@@ -188,7 +189,7 @@ class KJModuleBedrock extends Module
         $configuration_values = [];
 
         foreach (self::CONFIGURATION as $key => $default_value) {
-            $configuration_values[] = Tools::getValue($key, Configuration::get($key));
+            $configuration_values[$key] = Tools::getValue($key, Configuration::get($key));
         }
 
         return $configuration_values;
