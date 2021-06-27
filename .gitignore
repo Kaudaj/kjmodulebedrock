@@ -1,0 +1,14 @@
+### PrestaShop cache
+config.xml
+config_*.xml
+
+### NPM
+/node_modules/
+
+### Composer ###
+composer.phar
+/vendor/
+
+# CS Fixer
+.php_cs.cache
+

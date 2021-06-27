@@ -1,0 +1,30 @@
+{
+    "name": "kaudaj/kjmodulebedrock",
+    "description": "Module Bedrock",
+    "authors": [
+        {
+            "name": "Kaudaj",
+            "email": "info@kaudaj.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.6.0"
+    },
+    "require-dev": {
+        "prestashop/php-dev-tools": "^4.1",
+        "phpstan/phpstan": "^0.12.90",
+        "prestashop/autoindex": "^2.0",
+        "prestashop/header-stamp": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Kaudaj\\Module\\ModuleBedrock\\": "src/"
+        }
+    },
+    "config": {
+        "prepend-autoloader": false
+    },
+    "type": "prestashop-module",
+    "author": "PrestaShop",
+    "license": "AFL-3.0"
+}
