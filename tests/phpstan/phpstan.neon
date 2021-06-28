@@ -6,8 +6,7 @@ parameters:
   	# We consider that the extension file will be stored the folder test/phpstan
   	# From Phpstan 0.12, paths are relative to the .neon file.
   	- ../../kjmodulebedrock.php
-  reportUnmatchedIgnoredErrors: false
   ignoreErrors:
-  	# - '#Parameter \#1 \$idCategory of class Category constructor expects null, int given.#'
-
+    # - "#Insert your error here (don't forget to escape special characters like \\#)#"
+  reportUnmatchedIgnoredErrors: true
   level: 5
