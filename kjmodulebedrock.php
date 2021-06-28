@@ -52,7 +52,7 @@ class KJModuleBedrock extends Module
     {
         return parent::install()
             && $this->installConfiguration()
-            && $this->registerHooks();
+            && $this->registerHook(self::HOOKS);
     }
 
     private function installConfiguration()
@@ -66,39 +66,16 @@ class KJModuleBedrock extends Module
         return true;
     }
 
-    private function registerHooks()
-    {
-        foreach (self::HOOKS as $hook) {
-            if (!$this->registerHook($hook)) {
-                return false;
-            }
-        }
-
-        return true;
-    }
-
     public function uninstall()
     {
         return parent::uninstall()
             && $this->uninstallConfiguration()
-            && $this->unregisterHooks();
     }
 
     private function uninstallConfiguration()
     {
         foreach (self::CONFIGURATION as $key => $default_value) {
             if (!Configuration::deleteByName($key)) {
-                return false;
-            }
-        }
-
-        return true;
-    }
-
-    public function unregisterHooks()
-    {
-        foreach (self::HOOKS as $hook) {
-            if (!$this->unregisterHook($hook)) {
                 return false;
             }
         }
