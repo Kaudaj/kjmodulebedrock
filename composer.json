@@ -1,10 +1,14 @@
 {
     "name": "kaudaj/kjmodulebedrock",
     "description": "Module Bedrock",
+    "type": "prestashop-module",
+    "license": "AFL-3.0",
     "authors": [
         {
             "name": "Kaudaj",
-            "email": "info@kaudaj.com"
+            "email": "info@kaudaj.com",
+            "homepage": "https://kaudaj.com",
+            "role": "Developer"
         }
     ],
     "require": {
@@ -23,8 +27,5 @@
     },
     "config": {
         "prepend-autoloader": false
-    },
-    "type": "prestashop-module",
-    "author": "PrestaShop",
-    "license": "AFL-3.0"
+    }
 }
