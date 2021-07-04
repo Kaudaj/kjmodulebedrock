@@ -19,8 +19,8 @@
 
 declare(strict_types=1);
 
-use PrestaShop\PrestaShop\Adapter\SymfonyContainer;
 use Kaudaj\Module\ModuleBedrock\Form\ModuleBedrockConfiguration;
+use PrestaShop\PrestaShop\Adapter\SymfonyContainer;
 
 class KJModuleBedrock extends Module
 {
@@ -31,7 +31,7 @@ class KJModuleBedrock extends Module
 
     //Hooks to register
     const HOOKS = [
-        'exampleHook'
+        'exampleHook',
     ];
 
     const CONFIGURATION_CONTROLLER = 'AdminModuleBedrockConfiguration';
