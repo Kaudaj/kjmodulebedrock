@@ -34,8 +34,6 @@ class KJModuleBedrock extends Module
         'exampleHook',
     ];
 
-    const CONFIGURATION_CONTROLLER = 'AdminModuleBedrockConfiguration';
-
     public function __construct()
     {
         $this->name = 'kjmodulebedrock';
@@ -50,6 +48,15 @@ class KJModuleBedrock extends Module
 
         $this->displayName = $this->l('Module Bedrock');
         $this->description = $this->l('Boost module development by providing a solid bedrock.');
+
+        $this->tabs = [
+            [
+                'name' => 'Module Bedrock configuration',
+                'class_name' => 'AdminModuleBedrockConfiguration',
+                'parent_class_name' => 'CONFIGURE',
+                'visible' => false,
+            ],
+        ];
     }
 
     public function install()
