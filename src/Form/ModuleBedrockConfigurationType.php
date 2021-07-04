@@ -4,9 +4,8 @@ declare(strict_types=1);
 
 namespace Kaudaj\Module\ModuleBedrock\Form;
 
-use PrestaShop\PrestaShop\Core\ConstraintValidator\Constraints\TypedRegex;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use PrestaShopBundle\Form\Admin\Type\TranslatorAwareType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 class ModuleBedrockConfigurationType extends TranslatorAwareType
