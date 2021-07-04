@@ -10,7 +10,7 @@ jobs:
         uses: actions/checkout@v2.0.0
 
       # Optional step compiling JS files
-      #- name: Build JS dependencies
+      # - name: Build JS dependencies
       #  uses: PrestaShopCorp/github-action-build-js/12@v1.0
       #  with:
       #    cmd: yarn
