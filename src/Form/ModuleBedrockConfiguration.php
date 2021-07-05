@@ -56,7 +56,7 @@ final class ModuleBedrockConfiguration implements DataConfigurationInterface
         } else {
             try {
                 $this->configuration->set(static::EXAMPLE_SETTING, $configuration['example_setting']);
-            } catch (Exception $exception) {
+            } catch (\Exception $exception) {
                 $errors[] = $exception->getMessage();
             }
         }
