@@ -11,10 +11,10 @@ jobs:
 
       # Optional step compiling JS files
       # - name: Build JS dependencies
-      #  uses: PrestaShopCorp/github-action-build-js/12@v1.0
-      #  with:
-      #    cmd: yarn
-      #    path: ./_dev
+      #   uses: PrestaShopCorp/github-action-build-js/12@v1.0
+      #   with:
+      #     cmd: yarn
+      #     path: ./_dev
 
       # Install PHP dependencies (Production ONLY)
       - name: Install composer dependencies
