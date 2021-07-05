@@ -50,8 +50,8 @@ class KJModuleBedrock extends Module
 
         parent::__construct();
 
-        $this->displayName = $this->l('Module Bedrock');
-        $this->description = $this->l('Boost module development by providing a solid bedrock.');
+        $this->displayName = $this->trans('Module Bedrock', [], 'Modules.Kjmodulebedrock.Admin');
+        $this->description = $this->trans('Boost module development by providing a solid bedrock.', [], 'Modules.Kjmodulebedrock.Admin');
 
         $this->tabs = [
             [
@@ -59,8 +59,15 @@ class KJModuleBedrock extends Module
                 'class_name' => 'AdminModuleBedrockConfiguration',
                 'parent_class_name' => 'CONFIGURE',
                 'visible' => false,
+                'wording' => 'Module Bedrock configuration',
+                'wording_domain' => 'Modules.Kjmodulebedrock.Admin',
             ],
         ];
+    }
+
+    public function isUsingNewTranslationSystem()
+    {
+        return true;
     }
 
     public function install()
