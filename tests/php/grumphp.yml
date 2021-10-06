@@ -1,0 +1,11 @@
+grumphp:
+  tasks:
+    phpcsfixer:
+      config: tests/php/.php_cs
+    phpstan:
+      configuration: tests/php/phpstan.neon
+  parallel:
+    enabled: false
+  fixer:
+    enabled: true
+    fix_by_default: true

@@ -6,9 +6,9 @@ config_*.xml
 /node_modules/
 
 ### Composer ###
-composer.phar
 /vendor/
 
-# CS Fixer
+### Devtools ###
 .php_cs.cache
+.phpstan_bootstrap_config.php
 

@@ -1,0 +1,3 @@
+parameters:
+  bootstrapFiles:
+    - %currentWorkingDirectory%/tests/php/.phpstan_bootstrap.php

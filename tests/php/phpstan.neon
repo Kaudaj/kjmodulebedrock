@@ -1,0 +1,13 @@
+parameters:
+  paths:
+  	# We consider that the extension file will be stored the folder test/phpstan
+  	# From Phpstan 0.12, paths are relative to the .neon file.
+  	- ../../kjmodulebedrock.php
+  ignoreErrors:
+    # - "#Insert your error here (don't forget to escape special characters like the following hash: \\#)#"
+  reportUnmatchedIgnoredErrors: true
+  level: 5
+
+includes:
+  - %currentWorkingDirectory%/tests/php/.phpstan_bootstrap.neon
+  - %currentWorkingDirectory%/vendor/prestashop/php-dev-tools/phpstan/ps-module-extension.neon
