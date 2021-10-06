@@ -28,12 +28,16 @@ use PrestaShop\PrestaShop\Adapter\SymfonyContainer;
 
 class KJModuleBedrock extends Module
 {
-    //Configuration values
+    /**
+     * @var array Configuration values
+     */
     const CONFIGURATION = [
         ModuleBedrockConfiguration::EXAMPLE_SETTING => 'default_value',
     ];
 
-    //Hooks to register
+    /**
+     * @var array Hooks to register
+     */
     const HOOKS = [
         'exampleHook',
     ];
@@ -65,11 +69,17 @@ class KJModuleBedrock extends Module
         ];
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function isUsingNewTranslationSystem()
     {
         return true;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function install()
     {
         return parent::install()
@@ -77,6 +87,11 @@ class KJModuleBedrock extends Module
             && $this->registerHook(static::HOOKS);
     }
 
+    /**
+     * Install configuration values
+     * 
+     * @return bool
+     */
     private function installConfiguration()
     {
         foreach (static::CONFIGURATION as $key => $default_value) {
@@ -88,12 +103,20 @@ class KJModuleBedrock extends Module
         return true;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function uninstall()
     {
         return parent::uninstall()
             && $this->uninstallConfiguration();
     }
 
+    /**
+     * Uninstall configuration values
+     * 
+     * @return bool
+     */
     private function uninstallConfiguration()
     {
         foreach (static::CONFIGURATION as $key => $default_value) {
@@ -105,12 +128,20 @@ class KJModuleBedrock extends Module
         return true;
     }
 
+    /**
+     * Get module configuration page content
+     */
     public function getContent()
     {
         $route = SymfonyContainer::getInstance()->get('router')->generate('module_bedrock_configuration');
         Tools::redirectAdmin($route);
     }
 
+    /**
+     * Example hook
+     * 
+     * @param array $params Hook parameters
+     */
     public function hookExampleHook($params)
     {
         /* Do anything */

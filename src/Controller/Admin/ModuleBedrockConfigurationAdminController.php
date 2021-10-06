@@ -28,7 +28,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * Class ModuleBedrockConfigurationAdminController.
+ * Class ModuleBedrockConfigurationAdminController
  *
  * @ModuleActivated(moduleName="kjmodulebedrock", redirectRoute="admin_module_manage")
  */
