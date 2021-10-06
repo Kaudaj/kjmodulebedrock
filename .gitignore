@@ -3,10 +3,13 @@ config.xml
 config_*.xml
 
 ### NPM
-/node_modules/
+node_modules/
 
 ### Composer ###
 /vendor/
+
+### Assets ###
+/views/dist/
 
 ### Devtools ###
 .php_cs.cache

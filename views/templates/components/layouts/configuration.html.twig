@@ -22,23 +22,9 @@
 {% form_theme configuration_form 'PrestaShopBundle:Admin/TwigTemplateForm:prestashop_ui_kit.html.twig' %}
 
 {% block content %}
-  {{ form_start(configuration_form) }}
-  <div class="card">
-    <h3 class="card-header">
-      <i class="material-icons">settings</i> {{ 'Card header'|trans({}, 'Modules.Kjmodulebedrock.Admin') }}
-    </h3>
-    <div class="card-block row">
-      <div class="card-text">
-        {{ form_widget(configuration_form) }}
-      </div>
-    </div>
-    <div class="card-footer">
-      <div class="d-flex justify-content-end">
-        <button class="btn btn-primary float-right" id="save-button">
-          {{ 'Save'|trans({}, 'Admin.Actions') }}
-        </button>
-      </div>
-    </div>
-  </div>
-  {{ form_end(configuration_form) }}
+  {% include '@Modules/kjmodulebedrock/views/templates/components/organisms/back-form.html.twig' with {'form': configuration_form} %}
+{% endblock %}
+
+{% block stylesheets %}
+  <link rel="stylesheet" href="{{ asset('../modules/kjmodulebedrock/views/dist/back.css') }}" type="text/css" media="all">
 {% endblock %}
