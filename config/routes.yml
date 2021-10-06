@@ -2,5 +2,5 @@ module_bedrock_configuration:
   path: /kjmodulebedrock/configuration
   methods: [GET, POST]
   defaults:
-    _controller: 'Kaudaj\Module\ModuleBedrock\Controller\Admin\AdminModuleBedrockConfigurationController::indexAction'
+    _controller: 'Kaudaj\Module\ModuleBedrock\Controller\Admin\ModuleBedrockConfigurationAdminController::indexAction'
     _legacy_controller: AdminModuleBedrockConfiguration

@@ -28,11 +28,12 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * Class AdminModuleBedrockConfigurationController.
+ * Class ModuleBedrockConfigurationAdminController.
  *
  * @ModuleActivated(moduleName="kjmodulebedrock", redirectRoute="admin_module_manage")
  */
-class AdminModuleBedrockConfigurationController extends FrameworkBundleAdminController
+
+class ModuleBedrockConfigurationAdminController extends FrameworkBundleAdminController
 {
     /**
      * @AdminSecurity("is_granted(['read', 'post'], request.get('_legacy_controller'))", message="Access denied.")
