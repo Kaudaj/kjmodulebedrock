@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file original="admin" source-language="en-US" target-language="en-US" datatype="plaintext">
+    <body>
+      <trans-unit id="9e854fa28a3ad9f9fad2c1257c131ff0">
+        <source>Example setting</source>
+        <target>Example setting</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="eb4330c5f1fd14cb14ab6e1bde2c4749">
+        <source>Help user to fill this field.</source>
+        <target>Help user to fill this field.</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="1fdc43b01be4e6a90e605babfda25b0c">
+        <source>Module Bedrock</source>
+        <target>Module Bedrock</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="51f6da053f85a138e592dc581e7c808b">
+        <source>Boost module development by providing a solid bedrock.</source>
+        <target>Boost module development by providing a solid bedrock.</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="50e50042f39f0d4db0c5a11c7c3ca8c8">
+        <source>Card header</source>
+        <target>Card header</target>
+        <note>Line: </note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

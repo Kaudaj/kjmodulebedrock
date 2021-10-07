@@ -35,7 +35,7 @@ class ModuleBedrockConfigurationType extends TranslatorAwareType
         $builder
             ->add('example_setting', TextType::class, [
                 'label' => $this->trans('Example setting', 'Modules.Kjmodulebedrock.Admin'),
-                'help' => $this->trans('Help user to fill this field', 'Modules.Kjmodulebedrock.Admin'),
+                'help' => $this->trans('Help user to fill this field.', 'Modules.Kjmodulebedrock.Admin'),
                 'required' => false,
             ]);
     }

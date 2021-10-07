@@ -18,7 +18,8 @@
 
 {{ form_start(form) }}
   <div class="card">
-    {% include '@Modules/kjmodulebedrock/views/templates/components/atoms/card-header.html.twig' with {'header': 'Card header'} %}
+    {% include '@Modules/kjmodulebedrock/views/templates/components/atoms/card-header.html.twig'
+      with {'header': 'Card header' |trans({}, 'Modules.Kjmodulebedrock.Admin')} %}
     <div class="card-block row">
       <div class="card-text">
         {{ form_widget(form) }}
