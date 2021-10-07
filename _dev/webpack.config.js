@@ -1,6 +1,5 @@
 /**
- * Copyright since 2007 PrestaShop SA and Contributors
- * PrestaShop is an International Registered Trademark & Property of PrestaShop SA
+ * Copyright since 2019 Kaudaj
  *
  * NOTICE OF LICENSE
  *
@@ -10,10 +9,10 @@
  * https://opensource.org/licenses/AFL-3.0
  * If you did not receive a copy of the license and are unable to
  * obtain it through the world-wide-web, please send an email
- * to license@prestashop.com so we can send you a copy immediately.
+ * to info@kaudaj.com so we can send you a copy immediately.
  *
- * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright Since 2007 PrestaShop SA and Contributors
+ * @author    Kaudaj <info@kaudaj.com>
+ * @copyright Since 2019 Kaudaj
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  */
  const {CleanWebpackPlugin} = require('clean-webpack-plugin');

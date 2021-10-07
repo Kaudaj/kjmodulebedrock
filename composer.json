@@ -34,7 +34,8 @@
     },
     "scripts": {
         "php_check": [
-          "grumphp run --ansi"
+            "grumphp run --ansi"
         ]
-    }
+    },
+    "author": "PrestaShop"
 }
