@@ -1,9 +1,9 @@
 grumphp:
   tasks:
     phpcsfixer:
-      config: tests/php/.php_cs
+      config: tests/php/.php_cs.dist
     phpstan:
-      configuration: tests/php/phpstan.neon
+      configuration: tests/php/phpstan.neon.dist
   parallel:
     enabled: false
   fixer:

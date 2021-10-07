@@ -16,10 +16,8 @@
     },
     "require-dev": {
         "prestashop/php-dev-tools": "^4.1",
-        "phpstan/phpstan": "^0.12.90",
-        "prestashop/autoindex": "^2.0",
-        "prestashop/header-stamp": "^2.0",
-        "phpro/grumphp-shim": "^1.5"
+        "phpro/grumphp-shim": "^1.5",
+        "phpstan/phpstan": "^0.12.99"
     },
     "autoload": {
         "psr-4": {
@@ -31,7 +29,7 @@
     },
     "extra": {
         "grumphp": {
-            "config-default-path": "tests/php/grumphp.yml"
+            "config-default-path": "tests/php/grumphp.yml.dist"
         }
     },
     "scripts": {
