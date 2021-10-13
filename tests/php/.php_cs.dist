@@ -8,6 +8,6 @@ $config
     ->setCacheFile(__DIR__.'/.php_cs.cache')
     ->getFinder()
     ->in($rootDir)
-    ->exclude([$rootDir . 'vendor', $rootDir . '_dev/node_modules']);
+    ->exclude(['vendor', 'node_modules']);
 
 return $config;
