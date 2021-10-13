@@ -89,7 +89,7 @@ class KJModuleBedrock extends Module
 
     /**
      * Install configuration values
-     * 
+     *
      * @return bool
      */
     private function installConfiguration()
@@ -114,7 +114,7 @@ class KJModuleBedrock extends Module
 
     /**
      * Uninstall configuration values
-     * 
+     *
      * @return bool
      */
     private function uninstallConfiguration()
@@ -139,7 +139,7 @@ class KJModuleBedrock extends Module
 
     /**
      * Example hook
-     * 
+     *
      * @param array $params Hook parameters
      */
     public function hookExampleHook($params)

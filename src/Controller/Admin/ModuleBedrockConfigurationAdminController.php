@@ -32,7 +32,6 @@ use Symfony\Component\HttpFoundation\Response;
  *
  * @ModuleActivated(moduleName="kjmodulebedrock", redirectRoute="admin_module_manage")
  */
-
 class ModuleBedrockConfigurationAdminController extends FrameworkBundleAdminController
 {
     /**

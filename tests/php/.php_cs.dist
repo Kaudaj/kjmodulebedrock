@@ -1,12 +1,13 @@
 <?php
 
 $config = new PrestaShop\CodingStandards\CsFixer\Config();
+$rootDir = __DIR__ . '/../../';
 
 $config
     ->setUsingCache(true)
     ->setCacheFile(__DIR__.'/.php_cs.cache')
     ->getFinder()
-    ->in(__DIR__ . '/..')
-    ->exclude('../vendor');
+    ->in($rootDir)
+    ->exclude([$rootDir . 'vendor', $rootDir . '_dev/node_modules']);
 
 return $config;
