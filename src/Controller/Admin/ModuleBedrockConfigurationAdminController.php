@@ -21,9 +21,12 @@ declare(strict_types=1);
 
 namespace Kaudaj\Module\ModuleBedrock\Controller\Admin;
 
+use PrestaShop\PrestaShop\Core\Domain\Tab\Command\UpdateTabStatusByClassNameCommand;
 use PrestaShopBundle\Controller\Admin\FrameworkBundleAdminController;
 use PrestaShopBundle\Security\Annotation\AdminSecurity;
+use PrestaShopBundle\Security\Annotation\DemoRestricted;
 use PrestaShopBundle\Security\Annotation\ModuleActivated;
+use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -35,7 +38,7 @@ use Symfony\Component\HttpFoundation\Response;
 class ModuleBedrockConfigurationAdminController extends FrameworkBundleAdminController
 {
     /**
-     * @AdminSecurity("is_granted(['read', 'post'], request.get('_legacy_controller'))", message="Access denied.")
+     * @AdminSecurity("is_granted(['read'], request.get('_legacy_controller'))", message="You do not have permission to access this.")
      *
      * @param Request $request
      *
@@ -45,22 +48,61 @@ class ModuleBedrockConfigurationAdminController extends FrameworkBundleAdminCont
     {
         $formDataHandler = $this->get('kaudaj.module.modulebedrock.form.module_bedrock_configuration_form_data_handler');
 
+        /** @var FormInterface $form */
         $form = $formDataHandler->getForm();
+
+        return $this->renderForm($form);
+    }
+
+    /**
+     * @param Request $request
+     *
+     * @AdminSecurity(
+     *     "is_granted('update', request.get('_legacy_controller')) && is_granted('create', request.get('_legacy_controller')) && is_granted('delete', request.get('_legacy_controller'))",
+     *     message="You do not have permission to update this.",
+     *     redirectRoute="module_bedrock_configuration")
+     *
+     * @DemoRestricted(redirectRoute="module_bedrock_configuration")
+     *
+     * @return Response
+     *
+     * @throws \LogicException
+     */
+    public function processFormAction(Request $request)
+    {
+        $this->dispatchHook('action' . get_class($this) . 'PostProcessBefore', ['controller' => $this]);
+
+        $formHandler = $this->get('kaudaj.module.modulebedrock.form.module_bedrock_configuration_form_data_handler');
+
+        /** @var FormInterface $form */
+        $form = $formHandler->getForm();
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            /** You can return array of errors in form handler and they can be displayed to user with flashErrors */
-            $errors = $formDataHandler->save($form->getData());
+            $data = $form->getData();
+            $saveErrors = $formHandler->save($data);
 
-            if (empty($errors)) {
+            if (0 === count($saveErrors)) {
+                $this->getCommandBus()->handle(
+                    new UpdateTabStatusByClassNameCommand(
+                        'AdminShopGroup',
+                        $this->configuration->getBoolean('PS_MULTISHOP_FEATURE_ACTIVE')
+                    )
+                );
+
                 $this->addFlash('success', $this->trans('Successful update.', 'Admin.Notifications.Success'));
 
-                return $this->redirectToRoute('module_bedrock_configuration');
+                return $this->redirectToRoute('admin_module_bedrock_configuration');
             }
 
-            $this->flashErrors($errors);
+            $this->flashErrors($saveErrors);
         }
 
+        return $this->renderForm($form);
+    }
+
+    private function renderForm(FormInterface $form): Response
+    {
         return $this->render('@Modules/kjmodulebedrock/views/templates/back/components/layouts/configuration.html.twig', [
             'configuration_form' => $form->createView(),
         ]);

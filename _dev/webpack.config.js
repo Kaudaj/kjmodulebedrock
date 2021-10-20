@@ -23,6 +23,7 @@
    entry: {
      front: './css/front',
      back: './css/back',
+     configuration: './js/configuration'
    },
    output: {
      filename: '[name].js',

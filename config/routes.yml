@@ -1,6 +1,14 @@
-module_bedrock_configuration:
+admin_module_bedrock_configuration:
   path: /kjmodulebedrock/configuration
-  methods: [GET, POST]
+  methods: [GET]
   defaults:
     _controller: 'Kaudaj\Module\ModuleBedrock\Controller\Admin\ModuleBedrockConfigurationAdminController::indexAction'
     _legacy_controller: AdminModuleBedrockConfiguration
+
+admin_module_bedrock_configuration_save:
+    path: /kjmodulebedrock/configuration
+    methods: [POST, PATCH]
+    defaults:
+        _controller: 'Kaudaj\Module\ModuleBedrock\Controller\Admin\ModuleBedrockConfigurationAdminController::processFormAction'
+        _legacy_controller: AdminModuleBedrockConfiguration
+        _legacy_link: AdminModuleBedrockConfiguration:update

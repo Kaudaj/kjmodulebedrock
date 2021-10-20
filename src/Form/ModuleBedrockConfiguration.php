@@ -21,41 +21,32 @@ declare(strict_types=1);
 
 namespace Kaudaj\Module\ModuleBedrock\Form;
 
-use PrestaShop\PrestaShop\Core\Configuration\DataConfigurationInterface;
-use PrestaShop\PrestaShop\Core\ConfigurationInterface;
+use PrestaShop\PrestaShop\Core\Configuration\AbstractMultistoreConfiguration;
+use PrestaShopBundle\Service\Form\MultistoreCheckboxEnabler;
 
 /**
  * Configuration is used to save data to configuration table and retrieve from it
  */
-final class ModuleBedrockConfiguration implements DataConfigurationInterface
+final class ModuleBedrockConfiguration extends AbstractMultistoreConfiguration
 {
-    public const EXAMPLE_SETTING = 'KJ_MODULE_BEDROCK_EXAMPLE_SETTING';
+    /**
+     * @var string
+     */
+    public const EXAMPLE_SETTING_KEY = 'KJ_MODULE_BEDROCK_EXAMPLE_SETTING';
 
     /**
-     * @var ConfigurationInterface
+     * @var string[]
      */
-    private $configuration;
-
-    /**
-     * @param ConfigurationInterface $configuration
-     */
-    public function __construct(ConfigurationInterface $configuration)
-    {
-        $this->configuration = $configuration;
-    }
+    private $fields = ['example_setting'];
 
     /**
      * {@inheritdoc}
      */
     public function getConfiguration(): array
     {
-        $return = [];
-
-        if ($exampleSetting = $this->configuration->get(static::EXAMPLE_SETTING)) {
-            $return['example_setting'] = $exampleSetting;
-        }
-
-        return $return;
+        return [
+            'example_setting' => $this->configuration->get(self::EXAMPLE_SETTING_KEY),
+        ];
     }
 
     /**
@@ -63,22 +54,27 @@ final class ModuleBedrockConfiguration implements DataConfigurationInterface
      */
     public function updateConfiguration(array $configuration): array
     {
-        $errors = [];
         if (!$this->validateConfiguration($configuration)) {
-            $errors[] = [
+            return [
                 'key' => 'Invalid configuration',
                 'parameters' => [],
                 'domain' => 'Admin.Notifications.Warning',
             ];
         } else {
+            $shopConstraint = $this->getShopConstraint();
+
             try {
-                $this->configuration->set(static::EXAMPLE_SETTING, $configuration['example_setting']);
+                $this->updateConfigurationValue(self::EXAMPLE_SETTING_KEY, 'example_setting', $configuration, $shopConstraint);
             } catch (\Exception $exception) {
-                $errors[] = $exception->getMessage();
+                return [
+                    'key' => $exception->getMessage(),
+                    'parameters' => [],
+                    'domain' => 'Admin.Notifications.Warning',
+                ];
             }
         }
 
-        return $errors;
+        return [];
     }
 
     /**
@@ -90,6 +86,16 @@ final class ModuleBedrockConfiguration implements DataConfigurationInterface
      */
     public function validateConfiguration(array $configuration): bool
     {
+        foreach ($this->fields as $value) {
+            $this->fields[] = MultistoreCheckboxEnabler::MULTISTORE_FIELD_PREFIX . $value;
+        }
+
+        foreach ($configuration as $key => $value) {
+            if (!in_array($key, $this->fields)) {
+                return false;
+            }
+        }
+
         return true;
     }
 }

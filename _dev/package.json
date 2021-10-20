@@ -11,7 +11,7 @@
         "lint": "eslint --ext .js,.vue .",
         "lint-fix": "eslint --fix --ext .js,.vue .",
         "build": "webpack-cli --mode production",
-        "dev": "webpack-cli --mode development --watch"
+        "watch": "webpack-cli --mode development --watch"
     },
     "repository": {
         "type": "git",

@@ -29,3 +29,8 @@
   {{ parent() }}
   <link rel="stylesheet" href="{{ asset('../modules/kjmodulebedrock/views/dist/back.css') }}" type="text/css" media="all">
 {% endblock %}
+
+{% block javascripts %}
+  {{ parent() }}
+  <script src="{{ asset('../modules/kjmodulebedrock/views/dist/configuration.js') }}"></script>
+{% endblock %}

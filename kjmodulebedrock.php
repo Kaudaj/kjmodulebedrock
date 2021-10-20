@@ -32,7 +32,7 @@ class KJModuleBedrock extends Module
      * @var array Configuration values
      */
     const CONFIGURATION = [
-        ModuleBedrockConfiguration::EXAMPLE_SETTING => 'default_value',
+        ModuleBedrockConfiguration::EXAMPLE_SETTING_KEY => 'default_value',
     ];
 
     /**
@@ -133,7 +133,7 @@ class KJModuleBedrock extends Module
      */
     public function getContent()
     {
-        $route = SymfonyContainer::getInstance()->get('router')->generate('module_bedrock_configuration');
+        $route = SymfonyContainer::getInstance()->get('router')->generate('admin_module_bedrock_configuration');
         Tools::redirectAdmin($route);
     }
 
