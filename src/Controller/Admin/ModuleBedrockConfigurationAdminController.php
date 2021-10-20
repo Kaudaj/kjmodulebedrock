@@ -61,7 +61,7 @@ class ModuleBedrockConfigurationAdminController extends FrameworkBundleAdminCont
             $this->flashErrors($errors);
         }
 
-        return $this->render('@Modules/kjmodulebedrock/views/templates/components/layouts/configuration.html.twig', [
+        return $this->render('@Modules/kjmodulebedrock/views/templates/back/components/layouts/configuration.html.twig', [
             'configuration_form' => $form->createView(),
         ]);
     }
