@@ -35,18 +35,24 @@ final class ModuleBedrockConfiguration extends AbstractMultistoreConfiguration
     public const EXAMPLE_SETTING_KEY = 'KJ_MODULE_BEDROCK_EXAMPLE_SETTING';
 
     /**
-     * @var string[]
+     * @var array
      */
-    private $fields = ['example_setting'];
+    private $fields = [
+        'example_setting' => self::EXAMPLE_SETTING_KEY,
+    ];
 
     /**
      * {@inheritdoc}
      */
     public function getConfiguration(): array
     {
-        return [
-            'example_setting' => $this->configuration->get(self::EXAMPLE_SETTING_KEY),
-        ];
+        $configurationValues = [];
+
+        foreach ($this->fields as $field => $configurationKey) {
+            $configurationValues[$field] = $this->configuration->get($configurationKey);
+        }
+
+        return $configurationValues;
     }
 
     /**
@@ -54,8 +60,10 @@ final class ModuleBedrockConfiguration extends AbstractMultistoreConfiguration
      */
     public function updateConfiguration(array $configuration): array
     {
+        $errors = [];
+
         if (!$this->validateConfiguration($configuration)) {
-            return [
+            $errors[] = [
                 'key' => 'Invalid configuration',
                 'parameters' => [],
                 'domain' => 'Admin.Notifications.Warning',
@@ -64,9 +72,11 @@ final class ModuleBedrockConfiguration extends AbstractMultistoreConfiguration
             $shopConstraint = $this->getShopConstraint();
 
             try {
-                $this->updateConfigurationValue(self::EXAMPLE_SETTING_KEY, 'example_setting', $configuration, $shopConstraint);
+                foreach ($this->fields as $field => $configurationKey) {
+                    $this->updateConfigurationValue($configurationKey, $field, $configuration, $shopConstraint);
+                }
             } catch (\Exception $exception) {
-                return [
+                $errors[] = [
                     'key' => $exception->getMessage(),
                     'parameters' => [],
                     'domain' => 'Admin.Notifications.Warning',
@@ -74,7 +84,7 @@ final class ModuleBedrockConfiguration extends AbstractMultistoreConfiguration
             }
         }
 
-        return [];
+        return $errors;
     }
 
     /**
@@ -86,12 +96,13 @@ final class ModuleBedrockConfiguration extends AbstractMultistoreConfiguration
      */
     public function validateConfiguration(array $configuration): bool
     {
-        foreach ($this->fields as $value) {
-            $this->fields[] = MultistoreCheckboxEnabler::MULTISTORE_FIELD_PREFIX . $value;
+        foreach ($this->fields as $field => $configurationKey) {
+            $multistoreKey = MultistoreCheckboxEnabler::MULTISTORE_FIELD_PREFIX . $field;
+            $this->fields[$multistoreKey] = '';
         }
 
         foreach ($configuration as $key => $value) {
-            if (!in_array($key, $this->fields)) {
+            if (!key_exists($key, $this->fields)) {
                 return false;
             }
         }
