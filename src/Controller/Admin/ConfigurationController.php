@@ -65,7 +65,7 @@ class ConfigurationController extends FrameworkBundleAdminController
      * @AdminSecurity(
      *      "is_granted('update', request.get('_legacy_controller')) && is_granted('create', request.get('_legacy_controller')) && is_granted('delete', request.get('_legacy_controller'))",
      *      message="You do not have permission to update this.",
-     *      redirectRoute="back_to_top_configuration"
+     *      redirectRoute="admin_module_bedrock_configuration"
      * )
      *
      * @DemoRestricted(redirectRoute="preferences_configuration")
