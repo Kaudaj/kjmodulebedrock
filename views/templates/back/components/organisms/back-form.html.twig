@@ -16,10 +16,13 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  *#}
 
-{{ form_start(form) }}
+{# PrestaShop made some modifications to the way forms are displayed to work well with PrestaShop in order to benefit from those you need to use ui kit as theme#}
+{% form_theme form 'PrestaShopBundle:Admin/TwigTemplateForm:prestashop_ui_kit.html.twig' %}
+
+{{ form_start(form, {attr : {class: 'form', id: form_id}, action: form_action }) }}
   <div class="card">
     {% include '@Modules/kjmodulebedrock/views/templates/back/components/atoms/card-header.html.twig'
-      with {'header': 'Card header' |trans({}, 'Modules.Kjmodulebedrock.Admin')} %}
+      with {'header': card_header} %}
     <div class="card-block row">
       <div class="card-text">
         {{ form_widget(form) }}

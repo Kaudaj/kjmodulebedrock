@@ -21,9 +21,9 @@
  
  module.exports = {
    entry: {
-     front: './css/front',
-     back: './css/back',
-     configuration: './js/configuration'
+    front: './css/front/front.scss',
+    back: './css/back/back.scss',
+    configuration: './js/back/configuration.js'
    },
    output: {
      filename: '[name].js',

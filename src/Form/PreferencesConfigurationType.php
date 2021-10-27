@@ -26,7 +26,7 @@ use PrestaShopBundle\Form\Admin\Type\TranslatorAwareType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 
-class ModuleBedrockConfigurationType extends TranslatorAwareType
+class PreferencesConfigurationType extends TranslatorAwareType
 {
     /**
      * {@inheritdoc}
@@ -38,7 +38,7 @@ class ModuleBedrockConfigurationType extends TranslatorAwareType
                 'label' => $this->trans('Example setting', 'Modules.Kjmodulebedrock.Admin'),
                 'help' => $this->trans('Help user to fill this field.', 'Modules.Kjmodulebedrock.Admin'),
                 'required' => false,
-                'multistore_configuration_key' => ModuleBedrockConfiguration::EXAMPLE_SETTING_KEY,
+                'multistore_configuration_key' => PreferencesConfiguration::EXAMPLE_SETTING_KEY,
             ]);
     }
 

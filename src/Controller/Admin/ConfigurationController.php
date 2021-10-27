@@ -22,20 +22,22 @@ declare(strict_types=1);
 namespace Kaudaj\Module\ModuleBedrock\Controller\Admin;
 
 use PrestaShop\PrestaShop\Core\Domain\Tab\Command\UpdateTabStatusByClassNameCommand;
+use PrestaShop\PrestaShop\Core\Form\FormHandlerInterface;
 use PrestaShopBundle\Controller\Admin\FrameworkBundleAdminController;
 use PrestaShopBundle\Security\Annotation\AdminSecurity;
 use PrestaShopBundle\Security\Annotation\DemoRestricted;
 use PrestaShopBundle\Security\Annotation\ModuleActivated;
 use Symfony\Component\Form\FormInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * Class ModuleBedrockConfigurationAdminController
+ * Class ConfigurationController
  *
  * @ModuleActivated(moduleName="kjmodulebedrock", redirectRoute="admin_module_manage")
  */
-class ModuleBedrockConfigurationAdminController extends FrameworkBundleAdminController
+class ConfigurationController extends FrameworkBundleAdminController
 {
     /**
      * @AdminSecurity(
@@ -49,40 +51,65 @@ class ModuleBedrockConfigurationAdminController extends FrameworkBundleAdminCont
      */
     public function indexAction(Request $request): Response
     {
-        $formDataHandler = $this->get('kaudaj.module.modulebedrock.form.module_bedrock_configuration_form_data_handler');
+        $preferencesFormDataHandler = $this->getPreferencesFormHandler();
 
-        /** @var FormInterface $form */
-        $form = $formDataHandler->getForm();
+        /** @var FormInterface $preferencesForm */
+        $preferencesForm = $preferencesFormDataHandler->getForm();
 
-        return $this->renderForm($form);
+        return $this->render('@Modules/kjmodulebedrock/views/templates/back/components/layouts/configuration.html.twig', [
+            'preferences_form' => $preferencesForm->createView(),
+        ]);
     }
 
     /**
-     * @param Request $request
-     *
      * @AdminSecurity(
      *      "is_granted('update', request.get('_legacy_controller')) && is_granted('create', request.get('_legacy_controller')) && is_granted('delete', request.get('_legacy_controller'))",
      *      message="You do not have permission to update this.",
      *      redirectRoute="back_to_top_configuration"
      * )
      *
-     * @DemoRestricted(redirectRoute="module_bedrock_configuration")
+     * @DemoRestricted(redirectRoute="preferences_configuration")
      *
-     * @return Response
+     * @param Request $request
+     *
+     * @return RedirectResponse
      *
      * @throws \LogicException
      */
-    public function processFormAction(Request $request)
+    public function processPreferencesFormAction(Request $request)
     {
-        $this->dispatchHook('action' . get_class($this) . 'PostProcessBefore', ['controller' => $this]);
+        return $this->processForm(
+            $request,
+            $this->getPreferencesFormHandler(),
+            'Preferences'
+        );
+    }
 
-        $formHandler = $this->get('kaudaj.module.modulebedrock.form.module_bedrock_configuration_form_data_handler');
+    /**
+     * Process form.
+     *
+     * @param Request $request
+     * @param FormHandlerInterface $formHandler
+     * @param string $hookName
+     *
+     * @return RedirectResponse
+     */
+    private function processForm(Request $request, FormHandlerInterface $formHandler, string $hookName)
+    {
+        $this->dispatchHook(
+            'actionModuleBedrock' . get_class($this) . 'PostProcess' . $hookName . 'Before',
+            ['controller' => $this]
+        );
 
-        /** @var FormInterface $form */
+        $this->dispatchHook(
+            'actionModuleBedrock' . get_class($this) . 'PostProcessBefore',
+            ['controller' => $this]
+        );
+
         $form = $formHandler->getForm();
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted()) {
             $data = $form->getData();
             $saveErrors = $formHandler->save($data);
 
@@ -95,20 +122,19 @@ class ModuleBedrockConfigurationAdminController extends FrameworkBundleAdminCont
                 );
 
                 $this->addFlash('success', $this->trans('Successful update.', 'Admin.Notifications.Success'));
-
-                return $this->redirectToRoute('admin_module_bedrock_configuration');
+            } else {
+                $this->flashErrors($saveErrors);
             }
-
-            $this->flashErrors($saveErrors);
         }
 
-        return $this->renderForm($form);
+        return $this->redirectToRoute('admin_module_bedrock_configuration');
     }
 
-    private function renderForm(FormInterface $form): Response
+    /**
+     * @return FormHandlerInterface
+     */
+    private function getPreferencesFormHandler()
     {
-        return $this->render('@Modules/kjmodulebedrock/views/templates/back/components/layouts/configuration.html.twig', [
-            'configuration_form' => $form->createView(),
-        ]);
+        return $this->get('kaudaj.module.modulebedrock.form.preferences_configuration_form_data_handler');
     }
 }

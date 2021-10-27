@@ -23,7 +23,7 @@ if (file_exists(__DIR__ . '/vendor/autoload.php')) {
     require_once __DIR__ . '/vendor/autoload.php';
 }
 
-use Kaudaj\Module\ModuleBedrock\Form\ModuleBedrockConfiguration;
+use Kaudaj\Module\ModuleBedrock\Form\PreferencesConfiguration;
 use PrestaShop\PrestaShop\Adapter\SymfonyContainer;
 
 class KJModuleBedrock extends Module
@@ -32,7 +32,7 @@ class KJModuleBedrock extends Module
      * @var array Configuration values
      */
     const CONFIGURATION = [
-        ModuleBedrockConfiguration::EXAMPLE_SETTING_KEY => 'default_value',
+        PreferencesConfiguration::EXAMPLE_SETTING_KEY => 'default_value',
     ];
 
     /**
@@ -59,11 +59,11 @@ class KJModuleBedrock extends Module
 
         $this->tabs = [
             [
-                'name' => 'Module Bedrock configuration',
-                'class_name' => 'AdminModuleBedrockConfiguration',
+                'name' => 'Module Bedrock Configuration',
+                'class_name' => 'ModuleBedrockConfiguration',
                 'parent_class_name' => 'CONFIGURE',
                 'visible' => false,
-                'wording' => 'Module Bedrock configuration',
+                'wording' => 'Module Bedrock Configuration',
                 'wording_domain' => 'Modules.Kjmodulebedrock.Admin',
             ],
         ];

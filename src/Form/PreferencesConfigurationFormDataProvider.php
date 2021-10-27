@@ -27,21 +27,21 @@ use PrestaShop\PrestaShop\Core\Form\FormDataProviderInterface;
 /**
  * Provider ir responsible for providing form data, in this case it's as simple as using configuration to do that
  *
- * Class ModuleBedrockConfigurationFormDataProvider
+ * Class PreferencesConfigurationFormDataProvider
  */
-class ModuleBedrockConfigurationFormDataProvider implements FormDataProviderInterface
+class PreferencesConfigurationFormDataProvider implements FormDataProviderInterface
 {
     /**
      * @var DataConfigurationInterface
      */
-    private $moduleBedrockConfiguration;
+    private $preferencesConfiguration;
 
     /**
-     * @param DataConfigurationInterface $moduleBedrockConfiguration
+     * @param DataConfigurationInterface $preferencesConfiguration
      */
-    public function __construct(DataConfigurationInterface $moduleBedrockConfiguration)
+    public function __construct(DataConfigurationInterface $preferencesConfiguration)
     {
-        $this->moduleBedrockConfiguration = $moduleBedrockConfiguration;
+        $this->preferencesConfiguration = $preferencesConfiguration;
     }
 
     /**
@@ -49,7 +49,7 @@ class ModuleBedrockConfigurationFormDataProvider implements FormDataProviderInte
      */
     public function getData(): array
     {
-        return $this->moduleBedrockConfiguration->getConfiguration();
+        return $this->preferencesConfiguration->getConfiguration();
     }
 
     /**
@@ -57,6 +57,6 @@ class ModuleBedrockConfigurationFormDataProvider implements FormDataProviderInte
      */
     public function setData(array $data): array
     {
-        return $this->moduleBedrockConfiguration->updateConfiguration($data);
+        return $this->preferencesConfiguration->updateConfiguration($data);
     }
 }

@@ -27,7 +27,7 @@ use PrestaShopBundle\Service\Form\MultistoreCheckboxEnabler;
 /**
  * Configuration is used to save data to configuration table and retrieve from it
  */
-final class ModuleBedrockConfiguration extends AbstractMultistoreConfiguration
+final class PreferencesConfiguration extends AbstractMultistoreConfiguration
 {
     /**
      * @var string
