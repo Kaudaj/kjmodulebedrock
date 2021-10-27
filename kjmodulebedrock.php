@@ -133,7 +133,7 @@ class KJModuleBedrock extends Module
      */
     public function getContent()
     {
-        $route = SymfonyContainer::getInstance()->get('router')->generate('admin_module_bedrock_configuration');
+        $route = SymfonyContainer::getInstance()->get('router')->generate('module_bedrock_configuration');
         Tools::redirectAdmin($route);
     }
 

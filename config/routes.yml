@@ -1,11 +1,11 @@
-admin_module_bedrock_configuration:
+module_bedrock_configuration:
   path: /kjmodulebedrock/configuration
   methods: [GET]
   defaults:
     _controller: 'Kaudaj\Module\ModuleBedrock\Controller\Admin\ConfigurationController::indexAction'
     _legacy_controller: ModuleBedrockConfiguration
 
-admin_module_bedrock_configuration_preferences_save:
+module_bedrock_configuration_preferences_save:
   path: /kjmodulebedrock/configuration/preferences
   methods: [POST, PATCH]
   defaults:
