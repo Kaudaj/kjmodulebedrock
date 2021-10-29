@@ -15,52 +15,51 @@
  * @copyright Since 2019 Kaudaj
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  */
- const {CleanWebpackPlugin} = require('clean-webpack-plugin');
- const MiniCssExtractPlugin = require('mini-css-extract-plugin');
- const path = require('path');
- 
- module.exports = {
-   entry: {
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const path = require('path');
+
+module.exports = {
+  entry: {
     front: './css/front/front.scss',
     back: './css/back/back.scss',
-    configuration: './js/back/configuration.js'
-   },
-   output: {
-     filename: '[name].js',
-     path: path.resolve(__dirname, '../views/dist'),
-   },
-   module: {
-     rules: [
-       {
-         test: /\.js$/,
-         exclude: /node_modules/,
-         use: ['babel-loader'],
-       },
-       {
-         test: /\.s?css$/,
-         use: [
-           'style-loader',
-           {
-             loader: MiniCssExtractPlugin.loader,
-             options: {
-               esModule: false,
-             },
-           },
-           'css-loader',
-           'sass-loader',
-         ],
-       },
-     ],
-   },
-   stats: {
-     colors: true,
-   },
-   devtool: 'source-map',
-   plugins: [
-     new CleanWebpackPlugin(),
-     new MiniCssExtractPlugin({
-       filename: '[name].css',
-     }),
-   ],
- };
- 
+    configuration: './js/back/configuration.js',
+  },
+  output: {
+    filename: '[name].js',
+    path: path.resolve(__dirname, '../views/dist'),
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: ['babel-loader'],
+      },
+      {
+        test: /\.s?css$/,
+        use: [
+          'style-loader',
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              esModule: false,
+            },
+          },
+          'css-loader',
+          'sass-loader',
+        ],
+      },
+    ],
+  },
+  stats: {
+    colors: true,
+  },
+  devtool: 'source-map',
+  plugins: [
+    new CleanWebpackPlugin(),
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
+    }),
+  ],
+};
