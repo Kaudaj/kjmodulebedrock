@@ -24,8 +24,8 @@ if (file_exists(__DIR__ . '/vendor/autoload.php')) {
 }
 
 use Kaudaj\Module\ModuleBedrock\Form\PreferencesConfiguration;
-use PrestaShop\PrestaShop\Adapter\SymfonyContainer;
 use PrestaShop\PrestaShop\Adapter\Configuration;
+use PrestaShop\PrestaShop\Adapter\SymfonyContainer;
 
 class KJModuleBedrock extends Module
 {
@@ -110,7 +110,7 @@ class KJModuleBedrock extends Module
         } catch (Exception $e) {
             return false;
         }
-        
+
         return true;
     }
 
@@ -134,9 +134,9 @@ class KJModuleBedrock extends Module
             foreach (array_keys(static::CONFIGURATION_VALUES) as $key) {
                 $this->configuration->remove($key);
             }
-        } catch(Exception $e) {
+        } catch (Exception $e) {
             return false;
-        } 
+        }
 
         return true;
     }
