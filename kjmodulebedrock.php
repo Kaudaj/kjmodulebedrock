@@ -25,13 +25,14 @@ if (file_exists(__DIR__ . '/vendor/autoload.php')) {
 
 use Kaudaj\Module\ModuleBedrock\Form\PreferencesConfiguration;
 use PrestaShop\PrestaShop\Adapter\SymfonyContainer;
+use PrestaShop\PrestaShop\Adapter\Configuration;
 
 class KJModuleBedrock extends Module
 {
     /**
      * @var array Configuration values
      */
-    const CONFIGURATION = [
+    const CONFIGURATION_VALUES = [
         PreferencesConfiguration::EXAMPLE_SETTING_KEY => 'default_value',
     ];
 
@@ -41,6 +42,11 @@ class KJModuleBedrock extends Module
     const HOOKS = [
         'exampleHook',
     ];
+
+    /**
+     * @var Configuration
+     */
+    private $configuration;
 
     public function __construct()
     {
@@ -67,6 +73,8 @@ class KJModuleBedrock extends Module
                 'wording_domain' => 'Modules.Kjmodulebedrock.Admin',
             ],
         ];
+
+        $this->configuration = new Configuration();
     }
 
     /**
@@ -94,12 +102,15 @@ class KJModuleBedrock extends Module
      */
     private function installConfiguration()
     {
-        foreach (static::CONFIGURATION as $key => $default_value) {
-            if (!Configuration::updateValue($key, $default_value)) {
-                return false;
+        try {
+            //TODO: Fix le bug quand une valeur est set pour un shop
+            foreach (static::CONFIGURATION_VALUES as $key => $default_value) {
+                $this->configuration->set($key, $default_value);
             }
+        } catch (Exception $e) {
+            return false;
         }
-
+        
         return true;
     }
 
@@ -119,11 +130,13 @@ class KJModuleBedrock extends Module
      */
     private function uninstallConfiguration()
     {
-        foreach (static::CONFIGURATION as $key => $default_value) {
-            if (!Configuration::deleteByName($key)) {
-                return false;
+        try {
+            foreach (array_keys(static::CONFIGURATION_VALUES) as $key) {
+                $this->configuration->remove($key);
             }
-        }
+        } catch(Exception $e) {
+            return false;
+        } 
 
         return true;
     }
