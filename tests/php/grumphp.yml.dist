@@ -20,7 +20,7 @@ grumphp:
       scripts:
         - [
             "-c",
-            'vendor/bin/header-stamp --exclude=vendor,node_modules --license="_dev/header-stamp/afl.txt"',
+            'vendor/bin/header-stamp --dry-run --exclude=vendor,node_modules --license="_dev/header-stamp/afl.txt"',
           ]
   parallel:
     enabled: false
