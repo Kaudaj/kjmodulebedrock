@@ -23,8 +23,6 @@ jobs:
       # Remove development files
       - name: Clean-up project
         uses: PrestaShopCorp/github-action-clean-before-deploy@v1.0
-        with:
-          paths: .devtools
 
       # Zip files and upload to artifacts list
       - name: Create & upload artifact

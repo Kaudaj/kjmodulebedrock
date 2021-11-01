@@ -24,4 +24,4 @@ jobs:
       - run: composer install
 
       - name: Run Header Stamp in Dry Run mode
-        run: php vendor/bin/header-stamp --license=.devtools/header-stamp/afl.txt --exclude=vendor,tests,_dev --dry-run
+        run: php vendor/bin/header-stamp --license=_dev/header-stamp/afl.txt --exclude=vendor,tests,_dev --dry-run
