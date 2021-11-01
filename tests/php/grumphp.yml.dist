@@ -5,15 +5,10 @@ grumphp:
     phpstan:
       configuration: tests/php/phpstan.neon.dist
     # phpunit:
-    #   metadata:
-    #     task: shell
-    #   scripts:
-    #     - ["-c", "vendor/bin/phpunit -c tests/Unit/phpunit.xml"]
+    #   config_file: tests/Unit/phpunit.xml
     eslint:
-      metadata:
-        task: shell
-      scripts:
-        - ["-c", "cd _dev; npm run lint;"]
+      bin: _dev/node_modules/.bin/eslint
+      config: _dev/.eslintrc.js
     header-stamp:
       metadata:
         task: shell
