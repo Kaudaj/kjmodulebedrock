@@ -33,7 +33,7 @@
         }
     },
     "scripts": {
-        "php_check": [
+        "grum": [
             "grumphp run --ansi"
         ]
     },
