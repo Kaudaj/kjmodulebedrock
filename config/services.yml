@@ -4,7 +4,7 @@ services:
 
   kaudaj.modulebedrock.form.type.preferences_configuration_type:
     class: 'Kaudaj\Module\ModuleBedrock\Form\PreferencesConfigurationType'
-    parent: 'form.type.translatable.aware'
+    parent: "form.type.translatable.aware"
     public: true
     tags:
       - { name: form.type }
@@ -12,20 +12,20 @@ services:
   kaudaj.module.modulebedrock.form.preferences_configuration_form_data_provider:
     class: 'Kaudaj\Module\ModuleBedrock\Form\PreferencesConfigurationFormDataProvider'
     arguments:
-      - '@kaudaj.module.modulebedrock.form.preferences_configuration'
+      - "@kaudaj.module.modulebedrock.form.preferences_configuration"
 
   kaudaj.module.modulebedrock.form.preferences_configuration_form_data_handler:
     class: 'PrestaShop\PrestaShop\Core\Form\Handler'
     arguments:
-      - '@form.factory'
-      - '@prestashop.core.hook.dispatcher'
-      - '@kaudaj.module.modulebedrock.form.preferences_configuration_form_data_provider'
+      - "@form.factory"
+      - "@prestashop.core.hook.dispatcher"
+      - "@kaudaj.module.modulebedrock.form.preferences_configuration_form_data_provider"
       - 'Kaudaj\Module\ModuleBedrock\Form\PreferencesConfigurationType'
-      - 'PreferencesConfiguration'
+      - "PreferencesConfiguration"
 
   kaudaj.module.modulebedrock.form.preferences_configuration:
     class: Kaudaj\Module\ModuleBedrock\Form\PreferencesConfiguration
     arguments:
-      - '@prestashop.adapter.legacy.configuration'
-      - '@prestashop.adapter.shop.context'
-      - '@prestashop.adapter.multistore_feature'
+      - "@prestashop.adapter.legacy.configuration"
+      - "@prestashop.adapter.shop.context"
+      - "@prestashop.adapter.multistore_feature"

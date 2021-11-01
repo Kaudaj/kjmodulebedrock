@@ -14,4 +14,3 @@ node_modules/
 ### Devtools ###
 .php_cs.cache
 .phpstan_bootstrap_config.php
-
