@@ -4,6 +4,24 @@ grumphp:
       config: tests/php/.php_cs.dist
     phpstan:
       configuration: tests/php/phpstan.neon.dist
+    # phpunit:
+    #   metadata:
+    #     task: shell
+    #   scripts:
+    #     - ["-c", "vendor/bin/phpunit -c tests/Unit/phpunit.xml"]
+    eslint:
+      metadata:
+        task: shell
+      scripts:
+        - ["-c", "cd _dev; npm run lint;"]
+    header-stamp:
+      metadata:
+        task: shell
+      scripts:
+        - [
+            "-c",
+            'vendor/bin/header-stamp --exclude=vendor,node_modules --license="_dev/header-stamp/afl.txt"',
+          ]
   parallel:
     enabled: false
   fixer:
