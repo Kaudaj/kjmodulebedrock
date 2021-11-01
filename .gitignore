@@ -11,6 +11,6 @@ node_modules/
 ### Assets ###
 /views/dist/
 
-### Devtools ###
+### Dev ###
 .php_cs.cache
 .phpstan_bootstrap_config.php
