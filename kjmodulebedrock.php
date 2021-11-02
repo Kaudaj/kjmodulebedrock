@@ -44,7 +44,7 @@ class KJModuleBedrock extends Module
     ];
 
     /**
-     * @var Configuration
+     * @var Configuration Configuration
      */
     private $configuration;
 
