@@ -36,6 +36,5 @@
         "grum": [
             "grumphp run --ansi"
         ]
-    },
-    "author": "PrestaShop"
+    }
 }
