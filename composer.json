@@ -35,6 +35,9 @@
     "scripts": {
         "grum": [
             "grumphp run --ansi"
+        ],
+        "header-stamp": [
+            "vendor/bin/header-stamp --extensions=php,js,css,scss,tpl,html.twig,vue --exclude=vendor,node_modules --license=_dev/header-stamp/afl.txt"
         ]
     }
 }
