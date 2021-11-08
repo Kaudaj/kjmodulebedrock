@@ -97,7 +97,7 @@ class KJModuleBedrock extends Module
     {
         return parent::install()
             && $this->installConfiguration()
-            && $this->registerHook(static::HOOKS);
+            && $this->registerHook(self::HOOKS);
     }
 
     /**
@@ -109,7 +109,7 @@ class KJModuleBedrock extends Module
     {
         try {
             //TODO: Fix le bug quand une valeur est set pour un shop
-            foreach (static::CONFIGURATION_VALUES as $key => $default_value) {
+            foreach (self::CONFIGURATION_VALUES as $key => $default_value) {
                 $this->configuration->set($key, $default_value);
             }
         } catch (Exception $e) {
@@ -138,7 +138,7 @@ class KJModuleBedrock extends Module
     private function uninstallConfiguration()
     {
         try {
-            foreach (array_keys(static::CONFIGURATION_VALUES) as $key) {
+            foreach (array_keys(self::CONFIGURATION_VALUES) as $key) {
                 $this->configuration->remove($key);
             }
         } catch (Exception $e) {
