@@ -16,7 +16,7 @@
     },
     "require-dev": {
         "prestashop/php-dev-tools": "^4.1",
-        "phpstan/phpstan": "^0.12.99",
+        "phpstan/phpstan": "^0.12.89",
         "phpro/grumphp-shim": "^1.5"
     },
     "autoload": {
