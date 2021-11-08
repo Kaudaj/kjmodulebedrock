@@ -63,6 +63,5 @@ jobs:
         run: docker run -tid --rm -v ps-volume:/var/www/html --name temp-ps prestashop/prestashop:${{ matrix.presta-versions }}
 
       # Run a container for PHPStan, having access to the module content and PrestaShop sources.
-      # This tool is outside the composer.json because of the compatibility with PHP 5.6
       - name: Run PHPStan
-        run: docker run --rm --volumes-from temp-ps -v $PWD:/web/module -e _PS_ROOT_DIR_=/var/www/html --workdir=/web/module phpstan/phpstan:1.1 analyse --configuration=/web/module/tests/php/phpstan.neon.dist
+        run: docker run --rm --volumes-from temp-ps -v $PWD:/web/module -e _PS_ROOT_DIR_=/var/www/html --workdir=/web/module vendor/bin/phpstan analyse --configuration=tests/php/phpstan.neon.dist
