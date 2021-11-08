@@ -35,7 +35,7 @@ final class PreferencesConfiguration extends AbstractMultistoreConfiguration
     public const EXAMPLE_SETTING_KEY = 'KJ_MODULE_BEDROCK_EXAMPLE_SETTING';
 
     /**
-     * @var array
+     * @var array<string, string>
      */
     private $fields = [
         'example_setting' => self::EXAMPLE_SETTING_KEY,
@@ -43,6 +43,8 @@ final class PreferencesConfiguration extends AbstractMultistoreConfiguration
 
     /**
      * {@inheritdoc}
+     *
+     * @return array<string, mixed>
      */
     public function getConfiguration(): array
     {
@@ -57,6 +59,10 @@ final class PreferencesConfiguration extends AbstractMultistoreConfiguration
 
     /**
      * {@inheritdoc}
+     *
+     * @param array<string, mixed> $configuration
+     *
+     * @return array<int, array<string, mixed>>
      */
     public function updateConfiguration(array $configuration): array
     {
@@ -90,7 +96,7 @@ final class PreferencesConfiguration extends AbstractMultistoreConfiguration
     /**
      * Ensure the parameters passed are valid.
      *
-     * @param array $configuration
+     * @param array<string, mixed> $configuration
      *
      * @return bool Returns true if no exception are thrown
      */

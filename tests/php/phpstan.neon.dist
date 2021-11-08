@@ -7,7 +7,7 @@ parameters:
   ignoreErrors:
     # - "#Insert your error here (don't forget to escape special characters like the following hash: \\#)#"
   reportUnmatchedIgnoredErrors: true
-  level: 5
+  level: 8
 
 includes:
   - %currentWorkingDirectory%/tests/php/.phpstan_bootstrap.neon

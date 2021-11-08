@@ -53,7 +53,7 @@ class ConfigurationController extends FrameworkBundleAdminController
     {
         $preferencesFormDataHandler = $this->getPreferencesFormHandler();
 
-        /** @var FormInterface $preferencesForm */
+        /** @var FormInterface<string, mixed> $preferencesForm */
         $preferencesForm = $preferencesFormDataHandler->getForm();
 
         return $this->render('@Modules/kjmodulebedrock/views/templates/back/components/layouts/configuration.html.twig', [
@@ -135,6 +135,9 @@ class ConfigurationController extends FrameworkBundleAdminController
      */
     private function getPreferencesFormHandler()
     {
-        return $this->get('kaudaj.module.modulebedrock.form.preferences_configuration_form_data_handler');
+        /** @var FormHandlerInterface */
+        $formDataHandler = $this->get('kaudaj.module.modulebedrock.form.preferences_configuration_form_data_handler');
+
+        return $formDataHandler;
     }
 }

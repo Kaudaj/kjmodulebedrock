@@ -26,25 +26,26 @@ if (file_exists(__DIR__ . '/vendor/autoload.php')) {
 use Kaudaj\Module\ModuleBedrock\Form\PreferencesConfiguration;
 use PrestaShop\PrestaShop\Adapter\Configuration;
 use PrestaShop\PrestaShop\Adapter\SymfonyContainer;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class KJModuleBedrock extends Module
 {
     /**
-     * @var array Configuration values
+     * @var array<string, string> CONFIGURATION_VALUES Configuration values
      */
     const CONFIGURATION_VALUES = [
         PreferencesConfiguration::EXAMPLE_SETTING_KEY => 'default_value',
     ];
 
     /**
-     * @var array Hooks to register
+     * @var string[] Hooks to register
      */
     const HOOKS = [
         'exampleHook',
     ];
 
     /**
-     * @var Configuration Configuration
+     * @var Configuration<string, mixed> Configuration
      */
     private $configuration;
 
@@ -79,6 +80,8 @@ class KJModuleBedrock extends Module
 
     /**
      * {@inheritdoc}
+     *
+     * @return bool
      */
     public function isUsingNewTranslationSystem()
     {
@@ -87,6 +90,8 @@ class KJModuleBedrock extends Module
 
     /**
      * {@inheritdoc}
+     *
+     * @return bool
      */
     public function install()
     {
@@ -116,6 +121,8 @@ class KJModuleBedrock extends Module
 
     /**
      * {@inheritdoc}
+     *
+     * @return bool
      */
     public function uninstall()
     {
@@ -143,17 +150,27 @@ class KJModuleBedrock extends Module
 
     /**
      * Get module configuration page content
+     *
+     * @return void
      */
     public function getContent()
     {
-        $route = SymfonyContainer::getInstance()->get('router')->generate('module_bedrock_configuration');
-        Tools::redirectAdmin($route);
+        $container = SymfonyContainer::getInstance();
+
+        if ($container != null) {
+            /** @var UrlGeneratorInterface */
+            $router = $container->get('router');
+
+            Tools::redirectAdmin($router->generate('module_bedrock_configuration'));
+        }
     }
 
     /**
      * Example hook
      *
-     * @param array $params Hook parameters
+     * @param array<string, mixed> $params Hook parameters
+     *
+     * @return void
      */
     public function hookExampleHook($params)
     {
