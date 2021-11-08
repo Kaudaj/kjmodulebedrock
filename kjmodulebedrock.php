@@ -31,7 +31,7 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 class KJModuleBedrock extends Module
 {
     /**
-     * @var array<string, string> CONFIGURATION_VALUES Configuration values
+     * @var array<string, string> Configuration values
      */
     const CONFIGURATION_VALUES = [
         PreferencesConfiguration::EXAMPLE_SETTING_KEY => 'default_value',
