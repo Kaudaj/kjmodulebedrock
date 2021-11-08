@@ -64,4 +64,4 @@ jobs:
 
       # Run a container for PHPStan, having access to the module content and PrestaShop sources.
       - name: Run PHPStan
-        run: docker run --rm --volumes-from temp-ps -v $PWD:/web/module -e _PS_ROOT_DIR_=/var/www/html --workdir=/web/module vendor/bin/phpstan analyse --configuration=tests/php/phpstan.neon.dist
+        run: _PS_ROOT_DIR_=/var/www/html vendor/bin/phpstan analyse --configuration=tests/php/phpstan.neon.dist
