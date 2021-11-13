@@ -108,7 +108,6 @@ class KJModuleBedrock extends Module
     private function installConfiguration()
     {
         try {
-            //TODO: Fix le bug quand une valeur est set pour un shop
             foreach (self::CONFIGURATION_VALUES as $key => $default_value) {
                 $this->configuration->set($key, $default_value);
             }
