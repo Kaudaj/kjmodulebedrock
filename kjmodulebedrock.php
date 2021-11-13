@@ -97,7 +97,8 @@ class KJModuleBedrock extends Module
     {
         return parent::install()
             && $this->installConfiguration()
-            && $this->registerHook(self::HOOKS);
+            && $this->registerHook(self::HOOKS)
+        ;
     }
 
     /**
@@ -126,7 +127,8 @@ class KJModuleBedrock extends Module
     public function uninstall()
     {
         return parent::uninstall()
-            && $this->uninstallConfiguration();
+            && $this->uninstallConfiguration()
+        ;
     }
 
     /**
