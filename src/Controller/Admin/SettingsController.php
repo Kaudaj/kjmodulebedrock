@@ -65,10 +65,10 @@ class SettingsController extends FrameworkBundleAdminController
      * @AdminSecurity(
      *      "is_granted('update', request.get('_legacy_controller')) && is_granted('create', request.get('_legacy_controller')) && is_granted('delete', request.get('_legacy_controller'))",
      *      message="You do not have permission to update this.",
-     *      redirectRoute="module_bedrock_settings"
+     *      redirectRoute="kj_module_bedrock_settings"
      * )
      *
-     * @DemoRestricted(redirectRoute="module_bedrock_settings")
+     * @DemoRestricted(redirectRoute="kj_module_bedrock_settings")
      *
      * @param Request $request
      *
@@ -127,7 +127,7 @@ class SettingsController extends FrameworkBundleAdminController
             }
         }
 
-        return $this->redirectToRoute('module_bedrock_settings');
+        return $this->redirectToRoute('kj_module_bedrock_settings');
     }
 
     /**

@@ -150,7 +150,7 @@ class KJModuleBedrock extends Module
             /** @var UrlGeneratorInterface */
             $router = $container->get('router');
 
-            Tools::redirectAdmin($router->generate('module_bedrock_settings'));
+            Tools::redirectAdmin($router->generate('kj_module_bedrock_settings'));
         }
     }
 
