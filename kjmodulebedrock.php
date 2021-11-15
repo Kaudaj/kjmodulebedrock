@@ -80,20 +80,16 @@ class KJModuleBedrock extends Module
 
     /**
      * {@inheritdoc}
-     *
-     * @return bool
      */
-    public function isUsingNewTranslationSystem()
+    public function isUsingNewTranslationSystem(): bool
     {
         return true;
     }
 
     /**
      * {@inheritdoc}
-     *
-     * @return bool
      */
-    public function install()
+    public function install(): bool
     {
         return parent::install()
             && $this->installConfiguration()
@@ -103,10 +99,8 @@ class KJModuleBedrock extends Module
 
     /**
      * Install configuration values
-     *
-     * @return bool
      */
-    private function installConfiguration()
+    private function installConfiguration(): bool
     {
         try {
             foreach (self::CONFIGURATION_VALUES as $key => $default_value) {
@@ -121,10 +115,8 @@ class KJModuleBedrock extends Module
 
     /**
      * {@inheritdoc}
-     *
-     * @return bool
      */
-    public function uninstall()
+    public function uninstall(): bool
     {
         return parent::uninstall()
             && $this->uninstallConfiguration()
@@ -133,10 +125,8 @@ class KJModuleBedrock extends Module
 
     /**
      * Uninstall configuration values
-     *
-     * @return bool
      */
-    private function uninstallConfiguration()
+    private function uninstallConfiguration(): bool
     {
         try {
             foreach (array_keys(self::CONFIGURATION_VALUES) as $key) {
@@ -151,10 +141,8 @@ class KJModuleBedrock extends Module
 
     /**
      * Get module configuration page content
-     *
-     * @return void
      */
-    public function getContent()
+    public function getContent(): void
     {
         $container = SymfonyContainer::getInstance();
 
@@ -170,10 +158,8 @@ class KJModuleBedrock extends Module
      * Example hook
      *
      * @param array<string, mixed> $params Hook parameters
-     *
-     * @return void
      */
-    public function hookExampleHook($params)
+    public function hookExampleHook(array $params): void
     {
         /* Do anything */
     }
