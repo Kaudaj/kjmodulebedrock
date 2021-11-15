@@ -23,7 +23,7 @@ if (file_exists(__DIR__ . '/vendor/autoload.php')) {
     require_once __DIR__ . '/vendor/autoload.php';
 }
 
-use Kaudaj\Module\ModuleBedrock\Form\PreferencesConfiguration;
+use Kaudaj\Module\ModuleBedrock\Form\Settings\GeneralConfiguration;
 use PrestaShop\PrestaShop\Adapter\Configuration;
 use PrestaShop\PrestaShop\Adapter\SymfonyContainer;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
@@ -34,7 +34,7 @@ class KJModuleBedrock extends Module
      * @var array<string, string> Configuration values
      */
     const CONFIGURATION_VALUES = [
-        PreferencesConfiguration::EXAMPLE_SETTING_KEY => 'default_value',
+        GeneralConfiguration::EXAMPLE_SETTING_KEY => 'default_value',
     ];
 
     /**
@@ -150,7 +150,7 @@ class KJModuleBedrock extends Module
             /** @var UrlGeneratorInterface */
             $router = $container->get('router');
 
-            Tools::redirectAdmin($router->generate('module_bedrock_configuration'));
+            Tools::redirectAdmin($router->generate('module_bedrock_settings'));
         }
     }
 

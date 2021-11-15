@@ -19,14 +19,14 @@
 
 declare(strict_types=1);
 
-namespace Kaudaj\Module\ModuleBedrock\Form;
+namespace Kaudaj\Module\ModuleBedrock\Form\Settings;
 
 use PrestaShopBundle\Form\Admin\Type\MultistoreConfigurationType;
 use PrestaShopBundle\Form\Admin\Type\TranslatorAwareType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 
-class PreferencesConfigurationType extends TranslatorAwareType
+class GeneralConfigurationType extends TranslatorAwareType
 {
     /**
      * {@inheritdoc}
@@ -41,7 +41,7 @@ class PreferencesConfigurationType extends TranslatorAwareType
                 'label' => $this->trans('Example setting', 'Modules.Kjmodulebedrock.Admin'),
                 'help' => $this->trans('Help user to fill this field.', 'Modules.Kjmodulebedrock.Admin'),
                 'required' => false,
-                'multistore_configuration_key' => PreferencesConfiguration::EXAMPLE_SETTING_KEY,
+                'multistore_configuration_key' => GeneralConfiguration::EXAMPLE_SETTING_KEY,
             ]);
     }
 

@@ -33,11 +33,11 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * Class ConfigurationController
+ * Class SettingsController
  *
  * @ModuleActivated(moduleName="kjmodulebedrock", redirectRoute="admin_module_manage")
  */
-class ConfigurationController extends FrameworkBundleAdminController
+class SettingsController extends FrameworkBundleAdminController
 {
     /**
      * @AdminSecurity(
@@ -51,13 +51,13 @@ class ConfigurationController extends FrameworkBundleAdminController
      */
     public function indexAction(Request $request): Response
     {
-        $preferencesFormDataHandler = $this->getPreferencesFormHandler();
+        $generalFormDataHandler = $this->getGeneralFormHandler();
 
-        /** @var FormInterface<string, mixed> $preferencesForm */
-        $preferencesForm = $preferencesFormDataHandler->getForm();
+        /** @var FormInterface<string, mixed> $generalForm */
+        $generalForm = $generalFormDataHandler->getForm();
 
         return $this->render('@Modules/kjmodulebedrock/views/templates/back/components/layouts/configuration.html.twig', [
-            'preferences_form' => $preferencesForm->createView(),
+            'general_form' => $generalForm->createView(),
         ]);
     }
 
@@ -68,7 +68,7 @@ class ConfigurationController extends FrameworkBundleAdminController
      *      redirectRoute="module_bedrock_configuration"
      * )
      *
-     * @DemoRestricted(redirectRoute="preferences_configuration")
+     * @DemoRestricted(redirectRoute="general_configuration")
      *
      * @param Request $request
      *
@@ -76,12 +76,12 @@ class ConfigurationController extends FrameworkBundleAdminController
      *
      * @throws \LogicException
      */
-    public function processPreferencesFormAction(Request $request)
+    public function processGeneralFormAction(Request $request)
     {
         return $this->processForm(
             $request,
-            $this->getPreferencesFormHandler(),
-            'Preferences'
+            $this->getGeneralFormHandler(),
+            'General'
         );
     }
 
@@ -133,10 +133,10 @@ class ConfigurationController extends FrameworkBundleAdminController
     /**
      * @return FormHandlerInterface
      */
-    private function getPreferencesFormHandler()
+    private function getGeneralFormHandler()
     {
         /** @var FormHandlerInterface */
-        $formDataHandler = $this->get('kaudaj.module.modulebedrock.form.preferences_configuration_form_data_handler');
+        $formDataHandler = $this->get('kaudaj.module.modulebedrock.form.general_configuration_form_data_handler');
 
         return $formDataHandler;
     }

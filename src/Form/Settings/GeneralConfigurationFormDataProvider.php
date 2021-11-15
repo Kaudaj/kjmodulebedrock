@@ -19,7 +19,7 @@
 
 declare(strict_types=1);
 
-namespace Kaudaj\Module\ModuleBedrock\Form;
+namespace Kaudaj\Module\ModuleBedrock\Form\Settings;
 
 use PrestaShop\PrestaShop\Core\Configuration\DataConfigurationInterface;
 use PrestaShop\PrestaShop\Core\Form\FormDataProviderInterface;
@@ -27,21 +27,21 @@ use PrestaShop\PrestaShop\Core\Form\FormDataProviderInterface;
 /**
  * Provider ir responsible for providing form data, in this case it's as simple as using configuration to do that
  *
- * Class PreferencesConfigurationFormDataProvider
+ * Class GeneralConfigurationFormDataProvider
  */
-class PreferencesConfigurationFormDataProvider implements FormDataProviderInterface
+class GeneralConfigurationFormDataProvider implements FormDataProviderInterface
 {
     /**
      * @var DataConfigurationInterface
      */
-    private $preferencesConfiguration;
+    private $generalConfiguration;
 
     /**
-     * @param DataConfigurationInterface $preferencesConfiguration
+     * @param DataConfigurationInterface $generalConfiguration
      */
-    public function __construct(DataConfigurationInterface $preferencesConfiguration)
+    public function __construct(DataConfigurationInterface $generalConfiguration)
     {
-        $this->preferencesConfiguration = $preferencesConfiguration;
+        $this->generalConfiguration = $generalConfiguration;
     }
 
     /**
@@ -51,7 +51,7 @@ class PreferencesConfigurationFormDataProvider implements FormDataProviderInterf
      */
     public function getData(): array
     {
-        return $this->preferencesConfiguration->getConfiguration();
+        return $this->generalConfiguration->getConfiguration();
     }
 
     /**
@@ -63,6 +63,6 @@ class PreferencesConfigurationFormDataProvider implements FormDataProviderInterf
      */
     public function setData(array $data): array
     {
-        return $this->preferencesConfiguration->updateConfiguration($data);
+        return $this->generalConfiguration->updateConfiguration($data);
     }
 }

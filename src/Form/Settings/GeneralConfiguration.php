@@ -19,7 +19,7 @@
 
 declare(strict_types=1);
 
-namespace Kaudaj\Module\ModuleBedrock\Form;
+namespace Kaudaj\Module\ModuleBedrock\Form\Settings;
 
 use PrestaShop\PrestaShop\Core\Configuration\AbstractMultistoreConfiguration;
 use PrestaShopBundle\Service\Form\MultistoreCheckboxEnabler;
@@ -27,7 +27,7 @@ use PrestaShopBundle\Service\Form\MultistoreCheckboxEnabler;
 /**
  * Configuration is used to save data to configuration table and retrieve from it
  */
-final class PreferencesConfiguration extends AbstractMultistoreConfiguration
+final class GeneralConfiguration extends AbstractMultistoreConfiguration
 {
     /**
      * @var string

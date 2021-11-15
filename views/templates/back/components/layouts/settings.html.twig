@@ -19,11 +19,11 @@
 {% extends '@PrestaShop/Admin/layout.html.twig' %}
 
 {% block content %}
-  {% include '@Modules/kjmodulebedrock/views/templates/back/components/organisms/back-form.html.twig' with {
-    'form': preferences_form,
-    'form_id': 'configuration_preferences_form',
-    'form_action': path('module_bedrock_configuration_preferences_save'),
-    'card_header': 'Preferences' | trans({}, 'Modules.Kjmodulebedrock.Admin')
+  {% include '@Modules/kjmodulebedrock/views/templates/back/components/organisms/form.html.twig' with {
+    'form': general_form,
+    'form_id': 'settings_general_form',
+    'form_action': path('module_bedrock_settings_general_save'),
+    'card_header': 'General' | trans({}, 'Modules.Kjmodulebedrock.Admin')
   } %}
 {% endblock %}
 
@@ -34,5 +34,5 @@
 
 {% block javascripts %}
   {{ parent() }}
-  <script src="{{ asset('../modules/kjmodulebedrock/views/dist/configuration.js') }}"></script>
+  <script src="{{ asset('../modules/kjmodulebedrock/views/dist/settings.js') }}"></script>
 {% endblock %}
