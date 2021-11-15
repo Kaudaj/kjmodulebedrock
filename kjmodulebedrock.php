@@ -66,11 +66,11 @@ class KJModuleBedrock extends Module
 
         $this->tabs = [
             [
-                'name' => 'Module Bedrock Configuration',
-                'class_name' => 'ModuleBedrockConfiguration',
+                'name' => 'Module Bedrock Settings',
+                'class_name' => 'ModuleBedrockSettings',
                 'parent_class_name' => 'CONFIGURE',
                 'visible' => false,
-                'wording' => 'Module Bedrock Configuration',
+                'wording' => 'Module Bedrock Settings',
                 'wording_domain' => 'Modules.Kjmodulebedrock.Admin',
             ],
         ];

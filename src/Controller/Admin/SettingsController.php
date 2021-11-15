@@ -56,7 +56,7 @@ class SettingsController extends FrameworkBundleAdminController
         /** @var FormInterface<string, mixed> $generalForm */
         $generalForm = $generalFormDataHandler->getForm();
 
-        return $this->render('@Modules/kjmodulebedrock/views/templates/back/components/layouts/configuration.html.twig', [
+        return $this->render('@Modules/kjmodulebedrock/views/templates/back/components/layouts/settings.html.twig', [
             'general_form' => $generalForm->createView(),
         ]);
     }
@@ -65,10 +65,10 @@ class SettingsController extends FrameworkBundleAdminController
      * @AdminSecurity(
      *      "is_granted('update', request.get('_legacy_controller')) && is_granted('create', request.get('_legacy_controller')) && is_granted('delete', request.get('_legacy_controller'))",
      *      message="You do not have permission to update this.",
-     *      redirectRoute="module_bedrock_configuration"
+     *      redirectRoute="module_bedrock_settings"
      * )
      *
-     * @DemoRestricted(redirectRoute="general_configuration")
+     * @DemoRestricted(redirectRoute="module_bedrock_settings")
      *
      * @param Request $request
      *
@@ -127,7 +127,7 @@ class SettingsController extends FrameworkBundleAdminController
             }
         }
 
-        return $this->redirectToRoute('module_bedrock_configuration');
+        return $this->redirectToRoute('module_bedrock_settings');
     }
 
     /**
