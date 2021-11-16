@@ -2,7 +2,7 @@ services:
   _defaults:
     public: true
 
-  kaudaj.modulebedrock.form.type.general_configuration_type:
+  kaudaj.module.modulebedrock.form.type.general_configuration_type:
     class: 'Kaudaj\Module\ModuleBedrock\Form\Settings\GeneralConfigurationType'
     parent: "form.type.translatable.aware"
     public: true
