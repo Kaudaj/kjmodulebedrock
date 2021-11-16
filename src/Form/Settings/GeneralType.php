@@ -26,7 +26,7 @@ use PrestaShopBundle\Form\Admin\Type\TranslatorAwareType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 
-class GeneralConfigurationType extends TranslatorAwareType
+class GeneralType extends TranslatorAwareType
 {
     /**
      * {@inheritdoc}

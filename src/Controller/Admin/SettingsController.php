@@ -136,7 +136,7 @@ class SettingsController extends FrameworkBundleAdminController
     private function getGeneralFormHandler()
     {
         /** @var FormHandlerInterface */
-        $formDataHandler = $this->get('kaudaj.module.modulebedrock.form.general_configuration_form_data_handler');
+        $formDataHandler = $this->get('kaudaj.module.modulebedrock.form.settings.general_form_data_handler');
 
         return $formDataHandler;
     }
