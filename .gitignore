@@ -6,10 +6,16 @@ config_*.xml
 node_modules/
 
 ### Composer ###
-/vendor/
+/vendor/*
+!/vendor/index.php
+
+!/vendor/composer/
+/vendor/composer/*
+!/vendor/composer/index.php
 
 ### Assets ###
 /views/dist/
+!/views/dist/index.php
 
 ### Dev ###
 .php-cs-fixer.cache

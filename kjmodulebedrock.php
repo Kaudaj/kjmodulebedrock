@@ -19,8 +19,8 @@
 
 declare(strict_types=1);
 
-if (file_exists(__DIR__ . '/vendor/autoload.php')) {
-    require_once __DIR__ . '/vendor/autoload.php';
+if (file_exists(dirname(__FILE__) . '/vendor/autoload.php')) {
+    require_once dirname(__FILE__) . '/vendor/autoload.php';
 }
 
 use Kaudaj\Module\ModuleBedrock\Form\Settings\GeneralConfiguration;
@@ -62,7 +62,13 @@ class KJModuleBedrock extends Module
         parent::__construct();
 
         $this->displayName = $this->trans('Module Bedrock', [], 'Modules.Kjmodulebedrock.Admin');
-        $this->description = $this->trans('Boost module development by providing a solid bedrock.', [], 'Modules.Kjmodulebedrock.Admin');
+        $this->description = $this->trans(<<<EOF
+        Boost module development by providing a solid bedrock.
+EOF
+            ,
+            [],
+            'Modules.Kjmodulebedrock.Admin'
+        );
 
         $this->tabs = [
             [
