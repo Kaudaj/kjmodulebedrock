@@ -1,0 +1,14 @@
+name: PrestaShop Validator
+on: [push, pull_request]
+jobs:
+  validator:
+    name: Validator
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send module to validator
+        uses: PrestaShopCorp/github-action-validator@dev
+        env:
+          VALIDATOR_API_KEY: ${{ secrets.VALIDATOR_API_KEY }}
+        with:
+          github_link: Kaudaj/kjmodulebedrock
+          github_branch: main
