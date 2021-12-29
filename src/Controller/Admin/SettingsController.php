@@ -111,19 +111,21 @@ class SettingsController extends FrameworkBundleAdminController
 
         if ($form->isSubmitted()) {
             $data = $form->getData();
-            $saveErrors = $formHandler->save($data);
+            if (is_array($data)) {
+                $saveErrors = $formHandler->save($data);
 
-            if (0 === count($saveErrors)) {
-                $this->getCommandBus()->handle(
-                    new UpdateTabStatusByClassNameCommand(
-                        'AdminShopGroup',
-                        $this->configuration->getBoolean('PS_MULTISHOP_FEATURE_ACTIVE')
-                    )
-                );
+                if (0 === count($saveErrors)) {
+                    $this->getCommandBus()->handle(
+                        new UpdateTabStatusByClassNameCommand(
+                            'AdminShopGroup',
+                            $this->configuration->getBoolean('PS_MULTISHOP_FEATURE_ACTIVE')
+                        )
+                    );
 
-                $this->addFlash('success', $this->trans('Successful update.', 'Admin.Notifications.Success'));
-            } else {
-                $this->flashErrors($saveErrors);
+                    $this->addFlash('success', $this->trans('Successful update.', 'Admin.Notifications.Success'));
+                } else {
+                    $this->flashErrors($saveErrors);
+                }
             }
         }
 
