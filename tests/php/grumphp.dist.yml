@@ -3,7 +3,7 @@ grumphp:
     phpcsfixer:
       config: tests/php/.php-cs-fixer.dist.php
     phpstan:
-      configuration: tests/php/phpstan.neon.dist
+      configuration: tests/php/phpstan.dist.neon
     eslint:
       bin: _dev/node_modules/.bin/eslint
       config: _dev/.eslintrc.js

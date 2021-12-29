@@ -31,7 +31,7 @@
     },
     "extra": {
         "grumphp": {
-            "config-default-path": "tests/php/grumphp.yml.dist"
+            "config-default-path": "tests/php/grumphp.dist.yml"
         }
     },
     "scripts": {

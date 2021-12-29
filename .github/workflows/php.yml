@@ -98,4 +98,4 @@ jobs:
           unzip -q ${{ runner.temp }}/prestashop_zip/prestashop.zip -d ${{ runner.temp }}/prestashop
 
       - name: Run phpstan
-        run: _PS_ROOT_DIR_=${{ runner.temp }}/prestashop/ php ./vendor/bin/phpstan analyse --configuration=tests/php/phpstan.neon.dist
+        run: _PS_ROOT_DIR_=${{ runner.temp }}/prestashop/ php ./vendor/bin/phpstan analyse --configuration=tests/php/phpstan.dist.neon
