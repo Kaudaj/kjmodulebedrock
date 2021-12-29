@@ -33,14 +33,14 @@ class KJModuleBedrock extends Module
     /**
      * @var array<string, string> Configuration values
      */
-    const CONFIGURATION_VALUES = [
+    public const CONFIGURATION_VALUES = [
         GeneralConfiguration::EXAMPLE_SETTING_KEY => 'default_value',
     ];
 
     /**
      * @var string[] Hooks to register
      */
-    const HOOKS = [
+    public const HOOKS = [
         'exampleHook',
     ];
 

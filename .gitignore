@@ -12,5 +12,5 @@ node_modules/
 /views/dist/
 
 ### Dev ###
-.php_cs.cache
+.php-cs-fixer.cache
 .phpstan_bootstrap_config.php
