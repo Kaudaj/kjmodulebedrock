@@ -1,6 +1,6 @@
 <!-- <h1 align="center"><img src="/views/img/logo.png" alt="Module bedrock" width="500"></h1> -->
 
-# Module bedrock
+# Module bedrock for PrestaShop
 
 [![PHP tests](https://github.com/Kaudaj/kjmodulebedrock/actions/workflows/php.yml/badge.svg)](https://github.com/Kaudaj/kjmodulebedrock/actions/workflows/php.yml)
 [![GitHub release](https://img.shields.io/github/release/Kaudaj/kjmodulebedrock.svg)](https://GitHub.com/Kaudaj/kjmodulebedrock/releases/)
