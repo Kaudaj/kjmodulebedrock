@@ -8,19 +8,74 @@
 
 ## About
 
-**Module for [PrestaShop][prestashop] :**<br>
-Boost module development by providing a solid bedrock.
+Tired of building module from scratch every time?<br>
+Not satisfied with the PrestaShop generator?<br>
+Want an up-to-date bedrock to start with?<br>
+Consider cloning this repository and start from **kjmodulebedrock**!<br>
+You can use it freely to develop and selling your own modules.
+
+## Essential features
+
+- Code quality checking with [GitHub Actions](https://github.com/Kaudaj/kjmodulebedrock/tree/main/.github/workflows) (CI/CD) and [GrumPHP](https://github.com/phpro/grumphp) (Local).
+- Assets compilation with [Webpack](https://webpack.js.org/)
+- Multistore configuration form
+
+## Usage
+
+### Installation
+
+**Get started**
+
+```bash
+git clone https://github.com/Kaudaj/kjmodulebedrock.git
+
+# Then create your own module from it
+cp -R kjmodulebedrock yourmodule
+cd yourmodule
+rm -rf .git
+git init
+composer install
+```
+
+**Recommended: Automate the process**
+
+Here is a [bash script](create-new-module) to create a new module from kjmodulebedrock. <br>
+It uses `fop:module:rename` command from [`fop_console`](fop-console) project to automate the "renaming occurences" process. It will also link the local repository to your GitHub remote one if it exists.<br>
+It's highly recommended to create an alias for the `create-new-module` script in order to use it in all your PrestaShop projects. The instructions are available in this [gist](create-alias). Replace `<your-command>` by `/path/to/create-new-module.sh` and `your-alias` with whatever you want.<br>
+Make sure you are at the root of your PrestaShop environment and run it like this:
+
+```bash
+your-alias PREFIX,ModuleClassName
+
+# Example
+ps-new-module KJ,MyModule
+```
+
+### Development
+
+Here are some useful commands you could need during your development workflow:
+
+- `composer grum` Run GrumPHP tasks suite.
+- `composer header-stamp` Add license headers to files.
+- `composer autoindex` Add index files in directories.
+- `composer dumpautoload -a` Update the autoloader when you add new classes in a classmap package (`src` and `tests` folder here).
+- `npm run watch` (in `_dev` folder) Watch for changes in `_dev` folder and build automatically the assets in `views/dist` folder. It's recommended to run it in background, in a dedicated terminal.
+
+## Compatibility
+
+|     |     |
+| --- | --- |
+| PrestaShop | >=1.7.8.0          |
+| PHP        | >=7.1              |
+| Multistore | :heavy_check_mark: |
+
+## License
+
+[Academic Free License 3.0][afl-3.0].
 
 ## Reporting issues
 
-You can report issues with this module in this very repository. [Click here to report an issue][report-issue].
-
-## Multistore compatibility
-
-This module is compatible with the multistore :heavy_check_mark: <br/>
-It can be configured differently from one store to another.<br/>
-It can be configured quickly in the same way on all stores thanks to the all shops context or the group of shops.<br/>
-It can be activated on one store and deactivated on another
+You can [report issues][report-issue] in this very repository.
 
 ## Contributing
 
@@ -30,13 +85,12 @@ To contribute in the best way possible, you want to follow the [PrestaShop contr
 
 ## Contact
 
-Feel free to contact me by email at info@kaudaj.com.
-
-## License
-
-This module is released under the [Academic Free License 3.0][afl-3.0].
+Feel free to contact us by email at info@kaudaj.com.
 
 [report-issue]: https://github.com/Kaudaj/kjmodulebedrock/issues/new/choose
 [prestashop]: https://www.prestashop.com/
 [contribution-guidelines]: https://devdocs.prestashop.com/1.7/contribute/contribution-guidelines/project-modules/
 [afl-3.0]: https://opensource.org/licenses/AFL-3.0
+[fop-console]: https://github.com/friends-of-presta/fop_console
+[create-new-module]: https://gist.github.com/Kaudaj/dd963b5445bbc05d2290ee1300b72ccd
+[create-alias]: https://gist.github.com/Kaudaj/cf416de07a615c000a69da5ea44b1e86
