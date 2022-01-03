@@ -17,14 +17,14 @@
         <target>Module Bedrock</target>
         <note>Line: </note>
       </trans-unit>
-      <trans-unit id="51f6da053f85a138e592dc581e7c808b">
-        <source>Boost module development by providing a solid bedrock.</source>
+      <trans-unit id="8b688592443e7ec75f2d835e6740473c">
+        <source>        Boost module development by providing a solid bedrock.</source>
         <target>Booste le développement de module en fournissant une base solide.</target>
         <note>Line: </note>
       </trans-unit>
-      <trans-unit id="50e50042f39f0d4db0c5a11c7c3ca8c8">
-        <source>Card header</source>
-        <target>Titre de carte</target>
+      <trans-unit id="0db377921f4ce762c62526131097968f">
+        <source>General</source>
+        <target>Général</target>
         <note>Line: </note>
       </trans-unit>
     </body>
