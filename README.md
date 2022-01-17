@@ -51,6 +51,14 @@ your-alias PREFIX,ModuleClassName
 ps-new-module KJ,MyModule
 ```
 
+### Configuration
+
+- `tests/php/.phpstan_bootstrap_config.php` For GrumPHP: Set PrestaShop installation path for PHPStan task.<br>
+Replace default path with the root path of a stable PrestaShop environment.
+- `tests/php/.env` For GrumPHP: Set PHP executables path for syntax checking tasks.<br>
+`tests/php/.env.dist` is used as a fallback, filled with Ubuntu default locations.
+
+
 ### Development
 
 Here are some useful commands you could need during your development workflow:
@@ -65,8 +73,8 @@ Here are some useful commands you could need during your development workflow:
 
 |     |     |
 | --- | --- |
-| PrestaShop | >=1.7.8.0          |
-| PHP        | >=7.1              |
+| PrestaShop | **>=1.7.8.0**          |
+| PHP        | **>=7.1**              |
 | Multistore | :heavy_check_mark: |
 
 ## License

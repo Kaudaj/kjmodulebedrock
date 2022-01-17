@@ -1,8 +1,8 @@
-### PrestaShop cache
+### PrestaShop cache ###
 config.xml
 config_*.xml
 
-### NPM
+### NPM ###
 node_modules/
 
 ### Composer ###
@@ -17,6 +17,7 @@ node_modules/
 /views/dist/
 !/views/dist/index.php
 
-### Dev ###
+### Tests ###
 .php-cs-fixer.cache
 .phpstan_bootstrap_config.php
+tests/.env
