@@ -53,9 +53,11 @@ ps-new-module KJ,MyModule
 
 ### Configuration
 
-- `tests/php/.phpstan_bootstrap_config.php` For GrumPHP: Set PrestaShop installation path for PHPStan task.<br>
+- `tests/php/.phpstan_bootstrap_config.php`<br>
+For GrumPHP: Set PrestaShop installation path for PHPStan task.<br>
 Replace default path with the root path of a stable PrestaShop environment.
-- `tests/php/.env` For GrumPHP: Set PHP executables path for syntax checking tasks.<br>
+- `tests/php/.env`<br>
+For GrumPHP: Set PHP executables path for syntax checking tasks.<br>
 `tests/php/.env.dist` is used as a fallback, filled with Ubuntu default locations.
 
 
@@ -63,11 +65,16 @@ Replace default path with the root path of a stable PrestaShop environment.
 
 Here are some useful commands you could need during your development workflow:
 
-- `composer grum` Run GrumPHP tasks suite.
-- `composer header-stamp` Add license headers to files.
-- `composer autoindex` Add index files in directories.
-- `composer dumpautoload -a` Update the autoloader when you add new classes in a classmap package (`src` and `tests` folder here).
-- `npm run watch` (in `_dev` folder) Watch for changes in `_dev` folder and build automatically the assets in `views/dist` folder. It's recommended to run it in background, in a dedicated terminal.
+- `composer grum`<br>
+Run GrumPHP tasks suite.
+- `composer header-stamp`<br>
+Add license headers to files.
+- `composer autoindex`<br>
+Add index files in directories.
+- `composer dumpautoload -a`<br>
+Update the autoloader when you add new classes in a classmap package (`src` and `tests` folder here).
+- `npm run watch`<br>
+(in `_dev` folder) Watch for changes in `_dev` folder and build automatically the assets in `views/dist` folder. It's recommended to run it in background, in a dedicated terminal.
 
 ## Compatibility
 
