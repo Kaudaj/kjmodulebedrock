@@ -71,7 +71,7 @@ function abort_on_incorrect_configuration(): void
 {
     // envirornnemt var not set
     if (false === getenv('_PS_ROOT_DIR_')) {
-        throw new RuntimeException(PHP_EOL . PHP_EOL . '     PS_ROOT_DIR_ not set on "' . PHPSTAN_PS_ROOT_CONFIG_FILE . PHP_EOL . '     Correct this file or delete it. ');
+        throw new RuntimeException(PHP_EOL . PHP_EOL . '     _PS_ROOT_DIR_ not set on "' . PHPSTAN_PS_ROOT_CONFIG_FILE . PHP_EOL . '     Correct this file or delete it. ');
     }
 
     // default path was left
