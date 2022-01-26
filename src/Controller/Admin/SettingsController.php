@@ -97,12 +97,12 @@ class SettingsController extends FrameworkBundleAdminController
     private function processForm(Request $request, FormHandlerInterface $formHandler, string $hookName)
     {
         $this->dispatchHook(
-            'actionModuleBedrock' . get_class($this) . 'PostProcess' . $hookName . 'Before',
+            'actionKJModuleBedrock' . get_class($this) . 'PostProcess' . $hookName . 'Before',
             ['controller' => $this]
         );
 
         $this->dispatchHook(
-            'actionModuleBedrock' . get_class($this) . 'PostProcessBefore',
+            'actionKJModuleBedrock' . get_class($this) . 'PostProcessBefore',
             ['controller' => $this]
         );
 
