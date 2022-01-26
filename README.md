@@ -80,8 +80,8 @@ Update the autoloader when you add new classes in a classmap package (`src` and 
 
 |     |     |
 | --- | --- |
-| PrestaShop | **>=1.7.8.0**          |
-| PHP        | **>=7.1**              |
+| PrestaShop | **>=1.7.8.0** |
+| PHP        | **>=7.1** for production and **>=7.3** for development |
 | Multishop | :heavy_check_mark: |
 
 ## License
