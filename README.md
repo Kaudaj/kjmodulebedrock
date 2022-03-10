@@ -11,7 +11,9 @@
 Tired of building module from scratch every time?<br>
 Not satisfied with the PrestaShop generator?<br>
 Want an up-to-date bedrock to start with?<br>
+
 Consider cloning this repository and start from **kjmodulebedrock**!<br>
+
 You can use it freely to develop and selling your own modules.
 
 ## Essential features
@@ -40,9 +42,10 @@ composer install
 **Recommended: Automate the process**
 
 Here is a [bash script](create-new-module) to create a new module from kjmodulebedrock. <br>
-It uses `fop:module:rename` command from [`fop_console`](fop-console) project to automate the "search/replace occurences" process. It will also link the local repository to your GitHub remote one if it exists.<br>
+It uses `fop:module:rename` command from [`fop_console`](fop-console) project to automate the "search/replace occurences" process. It will also link the local repository to your GitHub remote one if it exists.
+
 It's highly recommended to create an alias for the `create-new-module` script in order to use it in all your PrestaShop projects. The instructions are available in this [gist](create-alias). Replace `<your-command>` by `/path/to/create-new-module.sh` and `your-alias` with whatever you want.<br>
-Make sure you are at the root of your PrestaShop environment and run it like this:
+Make sure you are at the root of your PrestaShop environment and run the script like this:
 
 ```bash
 your-alias PREFIX,ModuleClassName
