@@ -14,7 +14,7 @@ Want an up-to-date bedrock to start with?<br>
 
 Consider cloning this repository and start from **kjmodulebedrock**!<br>
 
-You can use it freely to develop and selling your own modules.
+You can use it freely to develop and sell your own modules.
 
 ## Essential features
 
