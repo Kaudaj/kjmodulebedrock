@@ -73,7 +73,8 @@ EOF
         $this->tabs = [
             [
                 'name' => 'Module Bedrock Settings',
-                'class_name' => 'ModuleBedrockSettings',
+                'class_name' => 'KJModuleBedrockSettings',
+                'route_name' => 'kj_module_bedrock_settings',
                 'parent_class_name' => 'CONFIGURE',
                 'visible' => false,
                 'wording' => 'Module Bedrock Settings',
