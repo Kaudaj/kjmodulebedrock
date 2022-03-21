@@ -110,5 +110,5 @@ Feel free to contact us by email at info@kaudaj.com.
 [contribution-guidelines]: https://devdocs.prestashop.com/1.7/contribute/contribution-guidelines/project-modules/
 [afl-3.0]: https://opensource.org/licenses/AFL-3.0
 [fop-console]: https://github.com/friends-of-presta/fop_console
-[create-new-module]: https://gist.github.com/Kaudaj/dd963b5445bbc05d2290ee1300b72ccd
-[create-alias]: https://gist.github.com/Kaudaj/cf416de07a615c000a69da5ea44b1e86
+[create-new-module]: https://gist.github.com/tom-combet/dd963b5445bbc05d2290ee1300b72ccd
+[create-alias]: https://gist.github.com/tom-combet/cf416de07a615c000a69da5ea44b1e86
