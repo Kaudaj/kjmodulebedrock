@@ -37,6 +37,8 @@ cd yourmodule
 rm -rf .git
 git init
 composer install
+cd _dev
+npm install
 ```
 
 **Recommended: Automate the process**
