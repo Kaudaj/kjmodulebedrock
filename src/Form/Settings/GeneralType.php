@@ -28,6 +28,8 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 class GeneralType extends TranslatorAwareType
 {
+    public const FIELD_EXAMPLE_SETTING = 'example_setting';
+
     /**
      * {@inheritdoc}
      *
@@ -37,11 +39,11 @@ class GeneralType extends TranslatorAwareType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('example_setting', TextType::class, [
+            ->add(self::FIELD_EXAMPLE_SETTING, TextType::class, [
                 'label' => $this->trans('Example setting', 'Modules.Kjmodulebedrock.Admin'),
                 'help' => $this->trans('Help user to fill this field.', 'Modules.Kjmodulebedrock.Admin'),
                 'required' => false,
-                'multistore_configuration_key' => GeneralConfiguration::EXAMPLE_SETTING_KEY,
+                'multistore_configuration_key' => GeneralConfiguration::getConfigurationKey(self::FIELD_EXAMPLE_SETTING),
             ]);
     }
 

@@ -29,16 +29,8 @@ use PrestaShopBundle\Service\Form\MultistoreCheckboxEnabler;
  */
 final class GeneralConfiguration extends AbstractMultistoreConfiguration
 {
-    /**
-     * @var string
-     */
-    public const EXAMPLE_SETTING_KEY = 'KJ_MODULE_BEDROCK_EXAMPLE_SETTING';
-
-    /**
-     * @var array<string, string>
-     */
-    private $fields = [
-        'example_setting' => self::EXAMPLE_SETTING_KEY,
+    private const CONFIGURATION_FIELDS = [
+        GeneralType::FIELD_EXAMPLE_SETTING,
     ];
 
     /**
@@ -50,8 +42,8 @@ final class GeneralConfiguration extends AbstractMultistoreConfiguration
     {
         $configurationValues = [];
 
-        foreach ($this->fields as $field => $configurationKey) {
-            $configurationValues[$field] = $this->configuration->get($configurationKey);
+        foreach (self::CONFIGURATION_FIELDS as $field) {
+            $configurationValues[$field] = $this->configuration->get($this->getConfigurationKey($field));
         }
 
         return $configurationValues;
@@ -78,8 +70,8 @@ final class GeneralConfiguration extends AbstractMultistoreConfiguration
             $shopConstraint = $this->getShopConstraint();
 
             try {
-                foreach ($this->fields as $field => $configurationKey) {
-                    $this->updateConfigurationValue($configurationKey, $field, $configuration, $shopConstraint);
+                foreach (self::CONFIGURATION_FIELDS as $field) {
+                    $this->updateConfigurationValue($this->getConfigurationKey($field), $field, $configuration, $shopConstraint);
                 }
             } catch (\Exception $exception) {
                 $errors[] = [
@@ -102,17 +94,23 @@ final class GeneralConfiguration extends AbstractMultistoreConfiguration
      */
     public function validateConfiguration(array $configuration): bool
     {
-        foreach ($this->fields as $field => $configurationKey) {
+        $fields = self::CONFIGURATION_FIELDS;
+        foreach (self::CONFIGURATION_FIELDS as $field) {
             $multistoreKey = MultistoreCheckboxEnabler::MULTISTORE_FIELD_PREFIX . $field;
-            $this->fields[$multistoreKey] = '';
+            $fields[] = $multistoreKey;
         }
 
-        foreach ($configuration as $key => $value) {
-            if (!key_exists($key, $this->fields)) {
+        foreach (array_keys($configuration) as $field) {
+            if (!in_array($field, $fields)) {
                 return false;
             }
         }
 
         return true;
+    }
+
+    public static function getConfigurationKey(string $fieldName): string
+    {
+        return 'KJ_MODULE_BEDROCK_' . strtoupper($fieldName);
     }
 }

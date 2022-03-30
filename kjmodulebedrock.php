@@ -24,6 +24,7 @@ if (file_exists(dirname(__FILE__) . '/vendor/autoload.php')) {
 }
 
 use Kaudaj\Module\ModuleBedrock\Form\Settings\GeneralConfiguration;
+use Kaudaj\Module\ModuleBedrock\Form\Settings\GeneralType;
 use PrestaShop\PrestaShop\Adapter\Configuration;
 use PrestaShop\PrestaShop\Adapter\SymfonyContainer;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
@@ -31,14 +32,12 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 class KJModuleBedrock extends Module
 {
     /**
-     * @var array<string, string> Configuration values
+     * @var array<string, string> Configuration values to install/uninstall
      */
-    public const CONFIGURATION_VALUES = [
-        GeneralConfiguration::EXAMPLE_SETTING_KEY => 'default_value',
-    ];
+    public $configurationValues = [];
 
     /**
-     * @var string[] Hooks to register
+     * @var string[] Hooks to register/unregister
      */
     public const HOOKS = [
         'exampleHook',
@@ -83,6 +82,10 @@ EOF
         ];
 
         $this->configuration = new Configuration();
+
+        $this->configurationValues = [
+            GeneralConfiguration::getConfigurationKey(GeneralType::FIELD_EXAMPLE_SETTING) => 'default_value',
+        ];
     }
 
     /**
@@ -110,8 +113,8 @@ EOF
     private function installConfiguration(): bool
     {
         try {
-            foreach (self::CONFIGURATION_VALUES as $key => $default_value) {
-                $this->configuration->set($key, $default_value);
+            foreach ($this->configurationValues as $key => $defaultValue) {
+                $this->configuration->set($key, $defaultValue);
             }
         } catch (Exception $e) {
             return false;
@@ -136,7 +139,7 @@ EOF
     private function uninstallConfiguration(): bool
     {
         try {
-            foreach (array_keys(self::CONFIGURATION_VALUES) as $key) {
+            foreach (array_keys($this->configurationValues) as $key) {
                 $this->configuration->remove($key);
             }
         } catch (Exception $e) {
