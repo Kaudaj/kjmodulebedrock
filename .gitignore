@@ -14,7 +14,7 @@ node_modules/
 !/vendor/composer/index.php
 
 ### Assets ###
-/views/dist/
+/views/dist/*
 !/views/dist/index.php
 
 ### Tests ###
