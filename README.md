@@ -37,14 +37,16 @@ cd yourmodule
 rm -rf .git
 git init
 composer install
+cd _dev
+npm install
 ```
 
 **Recommended: Automate the process**
 
-Here is a [bash script](create-new-module) to create a new module from kjmodulebedrock. <br>
-It uses `fop:module:rename` command from [`fop_console`](fop-console) project to automate the "search/replace occurences" process. It will also link the local repository to your GitHub remote one if it exists.
+Here is a [bash script][create-new-module] to create a new module from kjmodulebedrock. <br>
+It uses `fop:module:rename` command from [`fop_console`][fop-console] project to automate the "search/replace occurences" process. It will also link the local repository to your GitHub remote one if it exists.
 
-It's highly recommended to create an alias for the `create-new-module` script in order to use it in all your PrestaShop projects. The instructions are available in this [gist](create-alias). Replace `<your-command>` by `/path/to/create-new-module.sh` and `your-alias` with whatever you want.<br>
+It's highly recommended to create an alias for the `create-new-module` script in order to use it in all your PrestaShop projects. The instructions are available in this [gist][create-alias]. Replace `<your-command>` by `/path/to/create-new-module.sh` and `your-alias` with whatever you want.<br>
 Make sure you are at the root of your PrestaShop environment and run the script like this:
 
 ```bash
@@ -110,5 +112,5 @@ Feel free to contact us by email at info@kaudaj.com.
 [contribution-guidelines]: https://devdocs.prestashop.com/1.7/contribute/contribution-guidelines/project-modules/
 [afl-3.0]: https://opensource.org/licenses/AFL-3.0
 [fop-console]: https://github.com/friends-of-presta/fop_console
-[create-new-module]: https://gist.github.com/Kaudaj/dd963b5445bbc05d2290ee1300b72ccd
-[create-alias]: https://gist.github.com/Kaudaj/cf416de07a615c000a69da5ea44b1e86
+[create-new-module]: https://gist.github.com/tom-combet/dd963b5445bbc05d2290ee1300b72ccd
+[create-alias]: https://gist.github.com/tom-combet/cf416de07a615c000a69da5ea44b1e86
