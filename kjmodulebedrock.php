@@ -23,31 +23,8 @@ if (file_exists(dirname(__FILE__) . '/vendor/autoload.php')) {
     require_once dirname(__FILE__) . '/vendor/autoload.php';
 }
 
-use Kaudaj\Module\ModuleBedrock\Form\Settings\GeneralConfiguration;
-use Kaudaj\Module\ModuleBedrock\Form\Settings\GeneralType;
-use PrestaShop\PrestaShop\Adapter\Configuration;
-use PrestaShop\PrestaShop\Adapter\SymfonyContainer;
-use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
-
 class KJModuleBedrock extends Module
 {
-    /**
-     * @var array<string, string> Configuration values to install/uninstall
-     */
-    public $configurationValues = [];
-
-    /**
-     * @var string[] Hooks to register/unregister
-     */
-    public const HOOKS = [
-        'exampleHook',
-    ];
-
-    /**
-     * @var Configuration<string, mixed> Configuration
-     */
-    private $configuration;
-
     public function __construct()
     {
         $this->name = 'kjmodulebedrock';
@@ -80,12 +57,6 @@ EOF
                 'wording_domain' => 'Modules.Kjmodulebedrock.Admin',
             ],
         ];
-
-        $this->configuration = new Configuration();
-
-        $this->configurationValues = [
-            GeneralConfiguration::getConfigurationKey(GeneralType::FIELD_EXAMPLE_SETTING) => 'default_value',
-        ];
     }
 
     /**
@@ -94,83 +65,5 @@ EOF
     public function isUsingNewTranslationSystem(): bool
     {
         return true;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function install(): bool
-    {
-        return parent::install()
-            && $this->installConfiguration()
-            && $this->registerHook(self::HOOKS)
-        ;
-    }
-
-    /**
-     * Install configuration values
-     */
-    private function installConfiguration(): bool
-    {
-        try {
-            foreach ($this->configurationValues as $key => $defaultValue) {
-                $this->configuration->set($key, $defaultValue);
-            }
-        } catch (Exception $e) {
-            return false;
-        }
-
-        return true;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function uninstall(): bool
-    {
-        return parent::uninstall()
-            && $this->uninstallConfiguration()
-        ;
-    }
-
-    /**
-     * Uninstall configuration values
-     */
-    private function uninstallConfiguration(): bool
-    {
-        try {
-            foreach (array_keys($this->configurationValues) as $key) {
-                $this->configuration->remove($key);
-            }
-        } catch (Exception $e) {
-            return false;
-        }
-
-        return true;
-    }
-
-    /**
-     * Get module configuration page content
-     */
-    public function getContent(): void
-    {
-        $container = SymfonyContainer::getInstance();
-
-        if ($container != null) {
-            /** @var UrlGeneratorInterface */
-            $router = $container->get('router');
-
-            Tools::redirectAdmin($router->generate('kj_module_bedrock_settings'));
-        }
-    }
-
-    /**
-     * Example hook
-     *
-     * @param array<string, mixed> $params Hook parameters
-     */
-    public function hookExampleHook(array $params): void
-    {
-        /* Do anything */
     }
 }

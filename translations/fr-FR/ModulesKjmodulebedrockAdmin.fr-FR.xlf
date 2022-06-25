@@ -2,16 +2,6 @@
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
   <file original="admin" source-language="fr-FR" target-language="fr-FR" datatype="plaintext">
     <body>
-      <trans-unit id="9e854fa28a3ad9f9fad2c1257c131ff0">
-        <source>Example setting</source>
-        <target>Paramètre d'exemple</target>
-        <note>Line: </note>
-      </trans-unit>
-      <trans-unit id="eb4330c5f1fd14cb14ab6e1bde2c4749">
-        <source>Help user to fill this field.</source>
-        <target>Aidez l'utilisateur à remplir ce champ.</target>
-        <note>Line: </note>
-      </trans-unit>
       <trans-unit id="1fdc43b01be4e6a90e605babfda25b0c">
         <source>Module Bedrock</source>
         <target>Module Bedrock</target>
@@ -20,11 +10,6 @@
       <trans-unit id="8b688592443e7ec75f2d835e6740473c">
         <source>        Boost module development by providing a solid bedrock.</source>
         <target>Booste le développement de module en fournissant une base solide.</target>
-        <note>Line: </note>
-      </trans-unit>
-      <trans-unit id="0db377921f4ce762c62526131097968f">
-        <source>General</source>
-        <target>Général</target>
         <note>Line: </note>
       </trans-unit>
     </body>
