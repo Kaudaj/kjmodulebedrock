@@ -45,18 +45,6 @@ EOF
             [],
             'Modules.Kjmodulebedrock.Admin'
         );
-
-        $this->tabs = [
-            [
-                'name' => 'Module Bedrock Settings',
-                'class_name' => 'KJModuleBedrockSettings',
-                'route_name' => 'kj_module_bedrock_settings',
-                'parent_class_name' => 'CONFIGURE',
-                'visible' => false,
-                'wording' => 'Module Bedrock Settings',
-                'wording_domain' => 'Modules.Kjmodulebedrock.Admin',
-            ],
-        ];
     }
 
     /**
