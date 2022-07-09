@@ -4,15 +4,15 @@ module.exports = {
     node: true,
     browser: true,
   },
-  extends: [
-    'prestashop',
-  ],
+  extends: ['prestashop'],
   parserOptions: {
     ecmaVersion: 2021,
-    parser: 'babel-eslint',
+    parser: '@babel/eslint-parser',
+    requireConfigFile: false,
   },
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
   },
+  plugins: ['prettier'],
 };
