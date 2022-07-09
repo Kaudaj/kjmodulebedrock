@@ -1,0 +1,16 @@
+name: 'Setup node'
+description: 'Install node and packages'
+runs:
+  using: "composite"
+  steps:
+    - name: Setup node
+      uses: actions/setup-node@v3
+      with:
+        node-version: 12
+        cache: 'npm'
+        cache-dependency-path: _dev/package-lock.json
+
+    - name: Install dependencies
+      run: npm install
+      shell: bash
+      working-directory: ./_dev

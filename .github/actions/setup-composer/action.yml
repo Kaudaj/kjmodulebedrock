@@ -1,0 +1,24 @@
+name: 'Setup composer'
+description: 'Install composer dependencies'
+runs:
+  using: "composite"
+  steps:
+    - name: Get cache directory
+      id: composer-cache
+      run: |
+        echo "::set-output name=dir::$(composer config cache-files-dir)"
+      shell: bash
+
+    - name: Cache
+      uses: actions/cache@v3
+      with:
+        path: ${{ steps.composer-cache.outputs.dir }}
+        key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-composer-
+    
+    - name: Install dependencies
+      run: |
+        composer config --no-plugins allow-plugins.phpstan/extension-installer true
+        composer install
+      shell: bash
