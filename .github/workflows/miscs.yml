@@ -1,28 +1,17 @@
 name: Miscellaneous tests
 on: [push, pull_request]
+
 jobs:
-  # Check for license headers
   header-stamp:
     name: Check license headers
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
-      - name: Cache vendor folder
-        uses: actions/cache@v1
-        with:
-          path: vendor
-          key: php-${{ hashFiles('composer.lock') }}
+      - name: Setup composer
+        uses: ./.github/actions/setup-composer
 
-      - name: Cache composer folder
-        uses: actions/cache@v1
-        with:
-          path: ~/.composer/cache
-          key: php-composer-cache
-
-      - run: composer install
-
-      - name: Run Header Stamp in Dry Run mode
+      - name: Run header-stamp
         run: php vendor/bin/header-stamp --dry-run
           --extensions="php,js,css,scss,tpl,html.twig,vue" --exclude="vendor" --license="_dev/header-stamp/afl.txt"
