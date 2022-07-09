@@ -1,31 +1,3 @@
 services:
   _defaults:
     public: true
-
-  kaudaj.module.modulebedrock.form.settings.general_configuration:
-    class: Kaudaj\Module\ModuleBedrock\Form\Settings\GeneralConfiguration
-    arguments:
-      - "@prestashop.adapter.legacy.configuration"
-      - "@prestashop.adapter.shop.context"
-      - "@prestashop.adapter.multistore_feature"
-
-  kaudaj.module.modulebedrock.form.settings.general_type:
-    class: 'Kaudaj\Module\ModuleBedrock\Form\Settings\GeneralType'
-    parent: "form.type.translatable.aware"
-    public: true
-    tags:
-      - { name: form.type }
-
-  kaudaj.module.modulebedrock.form.settings.general_form_data_provider:
-    class: 'Kaudaj\Module\ModuleBedrock\Form\Settings\GeneralFormDataProvider'
-    arguments:
-      - "@kaudaj.module.modulebedrock.form.settings.general_configuration"
-
-  kaudaj.module.modulebedrock.form.settings.general_form_data_handler:
-    class: 'PrestaShop\PrestaShop\Core\Form\Handler'
-    arguments:
-      - "@form.factory"
-      - "@prestashop.core.hook.dispatcher"
-      - "@kaudaj.module.modulebedrock.form.settings.general_form_data_provider"
-      - 'Kaudaj\Module\ModuleBedrock\Form\Settings\GeneralType'
-      - "General"
