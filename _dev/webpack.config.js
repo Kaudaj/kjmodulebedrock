@@ -17,7 +17,6 @@
  */
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const WebpackShellPluginNext = require('webpack-shell-plugin-next');
 const path = require('path');
 
 module.exports = {
@@ -57,14 +56,14 @@ module.exports = {
   },
   devtool: 'source-map',
   plugins: [
-    new CleanWebpackPlugin(),
+    new CleanWebpackPlugin({
+      cleanOnceBeforeBuildPatterns: [
+        '**/*',
+        '!README.md',
+      ],
+    }),
     new MiniCssExtractPlugin({
       filename: '[name].css',
-    }),
-    new WebpackShellPluginNext({
-      onBuildEnd: {
-        scripts: ['cp ../index.php ../views/dist/index.php'],
-      },
     }),
   ],
 };
