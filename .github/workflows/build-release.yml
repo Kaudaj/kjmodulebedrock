@@ -21,12 +21,6 @@ jobs:
       - name: Clean-up project
         uses: PrestaShopCorp/github-action-clean-before-deploy@v1.0
 
-      - name: Prepare auto-index tool
-        run: composer global require prestashop/autoindex
-
-      - name: Generate index.php
-        run: ~/.composer/vendor/bin/autoindex
-
       - name: Create and upload artifact
         uses: actions/upload-artifact@v1
         with:
