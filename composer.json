@@ -40,9 +40,6 @@
     ],
     "header-stamp": [
       "vendor/bin/header-stamp --extensions=php,js,css,scss,tpl,html.twig,vue --exclude=vendor,node_modules --license=_dev/header-stamp/afl.txt"
-    ],
-    "autoindex": [
-      "vendor/bin/autoindex prestashop:add:index . --exclude=_dev,vendor,node_modules,tests"
     ]
   }
 }
