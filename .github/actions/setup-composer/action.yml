@@ -18,7 +18,5 @@ runs:
           ${{ runner.os }}-composer-
     
     - name: Install dependencies
-      run: |
-        composer config --no-plugins allow-plugins.phpstan/extension-installer true
-        composer install
+      run: composer install
       shell: bash
