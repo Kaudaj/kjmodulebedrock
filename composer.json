@@ -16,7 +16,7 @@
   },
   "require-dev": {
     "phpro/grumphp-shim": "^1.5",
-    "phpstan/phpstan": "^1.8",
+    "phpstan/phpstan": "1.7.4",
     "phpstan/phpstan-doctrine": "^1.3",
     "phpstan/extension-installer": "^1.1",
     "prestashop/php-dev-tools": "^4.2"
