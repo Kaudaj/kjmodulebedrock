@@ -18,5 +18,8 @@ runs:
           ${{ runner.os }}-composer-
     
     - name: Install dependencies
-      run: composer install
+      run: |
+        composer config --no-plugins allow-plugins.phpro/grumphp-shim true
+        composer config --no-plugins allow-plugins.phpstan/extension-installer true
+        composer install
       shell: bash
