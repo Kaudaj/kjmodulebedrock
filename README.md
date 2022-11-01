@@ -61,9 +61,6 @@ ps-new-module KJ,MyModule
 - `tests/php/.phpstan_bootstrap_config.php`<br>
 For GrumPHP: Set PrestaShop installation path for PHPStan task.<br>
 Replace default path with the root path of a stable PrestaShop environment.
-- `tests/php/.env`<br>
-For GrumPHP: Set PHP executables path for syntax checking tasks.<br>
-`tests/php/.env.dist` is used as a fallback, filled with Ubuntu default locations.
 
 
 ### Development
