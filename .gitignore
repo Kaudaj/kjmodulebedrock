@@ -9,8 +9,10 @@ node_modules/
 /vendor/
 
 ### Assets ###
-/views/dist/*
-!/views/dist/README.md
+/views/css/*
+!/views/css/README.md
+/views/js/*
+!/views/js/README.md
 
 ### Tests ###
 .php-cs-fixer.cache
