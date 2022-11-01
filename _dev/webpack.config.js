@@ -26,7 +26,7 @@ module.exports = {
   },
   output: {
     filename: '[name].js',
-    path: path.resolve(__dirname, '../views/dist'),
+    path: path.resolve(__dirname, '../views/js'),
   },
   module: {
     rules: [
@@ -63,7 +63,7 @@ module.exports = {
       ],
     }),
     new MiniCssExtractPlugin({
-      filename: '[name].css',
+      filename: path.join('..', 'css', '[name].css'),
     }),
   ],
 };
