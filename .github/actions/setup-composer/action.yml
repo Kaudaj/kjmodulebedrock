@@ -19,6 +19,7 @@ runs:
     
     - name: Install dependencies
       run: |
+        composer config --no-plugins allow-plugins.phpro/grumphp-shim true
         composer config --no-plugins allow-plugins.phpstan/extension-installer true
         composer install
       shell: bash
