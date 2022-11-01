@@ -19,7 +19,7 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 
-module.exports = {
+module.exports = (env, argv) => ({
   entry: {
     front: './css/front/front.scss',
     back: './css/back/back.scss',
@@ -54,7 +54,7 @@ module.exports = {
   stats: {
     colors: true,
   },
-  devtool: 'source-map',
+  devtool: argv.mode === 'production' ? false : 'source-map',
   plugins: [
     new CleanWebpackPlugin({
       cleanOnceBeforeBuildPatterns: [
@@ -66,4 +66,4 @@ module.exports = {
       filename: path.join('..', 'css', '[name].css'),
     }),
   ],
-};
+});
