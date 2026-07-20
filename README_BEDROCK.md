@@ -11,6 +11,18 @@
 **Module for [PrestaShop][prestashop]:**<br>
 Boost module development by providing a solid bedrock.
 
+## Branches
+
+One branch per PrestaShop major version:
+
+| Branch | PrestaShop  | PHP     | Highlights                                                                  |
+| ------ | ----------- | ------- | --------------------------------------------------------------------------- |
+| `dev`  | 1.7.8.x     | >= 7.1  | Historical baseline                                                          |
+| `8.x`  | 8.0 – 8.2   | >= 7.2  | Symfony settings page (controller, form, multistore configuration), webpack + dart-sass |
+| `9.x`  | 9.0 – 9.x   | >= 8.1  | `PrestaShopAdminController`, security attributes, Vite + Vue 3 + PrestaShop UI Kit (PUIK) |
+
+Fixes are applied to the oldest affected branch, then merged forward (`dev` -> `8.x` -> `9.x`).
+
 ## Reporting issues
 
 You can report issues with this module in this very repository. [Click here to report an issue][report-issue].

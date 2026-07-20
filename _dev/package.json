@@ -1,7 +1,7 @@
 {
     "name": "kjmodulebedrock",
-    "version": "1.0.0",
-    "description": "## About",
+    "version": "1.1.0",
+    "description": "Kaudaj Module Bedrock - front-end tooling",
     "private": true,
     "scripts": {
         "lint": "eslint --ext .js,.vue .",
@@ -16,7 +16,7 @@
         "url": "git+https://github.com/Kaudaj/kjmodulebedrock.git"
     },
     "keywords": [],
-    "author": "PrestaShop",
+    "author": "Kaudaj",
     "license": "AFL-3.0",
     "bugs": {
         "url": "https://github.com/Kaudaj/kjmodulebedrock/issues"
@@ -32,7 +32,6 @@
         "@babel/eslint-parser": "^7.18.2",
         "@babel/preset-env": "^7.18.6",
         "babel-loader": "^8.2.5",
-        "bootstrap": "~4.0.0",
         "clean-webpack-plugin": "^4.0.0",
         "css-loader": "^6.7.1",
         "eslint": "^8.19.0",
@@ -42,11 +41,9 @@
         "eslint-plugin-import": "^2.26.0",
         "eslint-plugin-prettier": "^4.2.1",
         "mini-css-extract-plugin": "^2.6.1",
-        "node-sass": "^7.0.1",
-        "prestakit": "^1.2.5",
         "prettier": "^2.7.1",
-        "sass-loader": "^13.0.2",
-        "style-loader": "^3.3.1",
+        "sass": "^1.60.0",
+        "sass-loader": "^16.0.0",
         "webpack": "^5.73.0",
         "webpack-cli": "^4.10.0"
     }

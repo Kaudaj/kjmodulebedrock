@@ -1,0 +1,55 @@
+{#**
+ * Copyright since 2019 Kaudaj
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License 3.0 (AFL-3.0)
+ * that is bundled with this package in the file LICENSE.md.
+ * It is also available through the world-wide-web at this URL:
+ * https://opensource.org/licenses/AFL-3.0
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to info@kaudaj.com so we can send you a copy immediately.
+ *
+ * @author    Kaudaj <info@kaudaj.com>
+ * @copyright Since 2019 Kaudaj
+ * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
+ *#}
+
+{% extends '@PrestaShop/Admin/layout.html.twig' %}
+{% trans_default_domain 'Modules.Kjmodulebedrock.Admin' %}
+
+{% block content %}
+  {{ form_start(general_form, {action: path('kj_module_bedrock_settings_general_save'), method: 'POST'}) }}
+    <div class="card" id="kj-module-bedrock-general-settings">
+      <h3 class="card-header">
+        <i class="material-icons">settings</i>
+        {{ 'General settings'|trans }}
+      </h3>
+      <div class="card-body">
+        <div class="form-wrapper">
+          {{ form_widget(general_form) }}
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="d-flex justify-content-end">
+          <button class="btn btn-primary" type="submit" id="kj-module-bedrock-general-settings-submit">
+            {{ 'Save'|trans({}, 'Admin.Actions') }}
+          </button>
+        </div>
+      </div>
+    </div>
+  {{ form_end(general_form) }}
+{% endblock %}
+
+{% block stylesheets %}
+  {{ parent() }}
+
+  <link rel="stylesheet" href="{{ asset('../modules/kjmodulebedrock/views/css/back.css') }}" type="text/css" media="all">
+{% endblock %}
+
+{% block javascripts %}
+  {{ parent() }}
+
+  <script src="{{ asset('../modules/kjmodulebedrock/views/js/back.js') }}" defer></script>
+{% endblock %}

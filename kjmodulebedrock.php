@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright since 2019 Kaudaj
  *
@@ -19,29 +20,52 @@
 
 declare(strict_types=1);
 
-if (file_exists(dirname(__FILE__) . '/vendor/autoload.php')) {
-    require_once dirname(__FILE__) . '/vendor/autoload.php';
+use Kaudaj\Module\ModuleBedrock\Form\Configuration\GeneralConfiguration;
+use Kaudaj\Module\ModuleBedrock\Form\Type\GeneralType;
+use PrestaShop\PrestaShop\Adapter\SymfonyContainer;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+
+if (!defined('_PS_VERSION_')) {
+    exit;
+}
+
+if (file_exists(__DIR__ . '/vendor/autoload.php')) {
+    require_once __DIR__ . '/vendor/autoload.php';
 }
 
 class KJModuleBedrock extends Module
 {
+    public const HOOKS = [
+        'actionFrontControllerSetMedia',
+    ];
+
     public function __construct()
     {
         $this->name = 'kjmodulebedrock';
         $this->tab = 'others';
-        $this->version = '1.0.0';
+        $this->version = '1.1.0';
         $this->author = 'Kaudaj';
-        $this->ps_versions_compliancy = ['min' => '1.7.8.0', 'max' => _PS_VERSION_];
+        $this->ps_versions_compliancy = ['min' => '8.0.0', 'max' => '8.99.99'];
 
         $this->bootstrap = true;
+
+        $this->tabs = [
+            [
+                'class_name' => 'KJModuleBedrockSettings',
+                'route_name' => 'kj_module_bedrock_settings',
+                'name' => 'Module Bedrock',
+                'wording' => 'Module Bedrock',
+                'wording_domain' => 'Modules.Kjmodulebedrock.Admin',
+                'parent_class_name' => 'CONFIGURE',
+                'visible' => false,
+            ],
+        ];
 
         parent::__construct();
 
         $this->displayName = $this->trans('Module Bedrock', [], 'Modules.Kjmodulebedrock.Admin');
-        $this->description = $this->trans(<<<EOF
-        Boost module development by providing a solid bedrock.
-EOF
-            ,
+        $this->description = $this->trans(
+            'Boost module development by providing a solid bedrock.',
             [],
             'Modules.Kjmodulebedrock.Admin'
         );
@@ -53,5 +77,56 @@ EOF
     public function isUsingNewTranslationSystem(): bool
     {
         return true;
+    }
+
+    public function install(): bool
+    {
+        return parent::install()
+            && $this->registerHook(self::HOOKS)
+        ;
+    }
+
+    public function uninstall(): bool
+    {
+        return parent::uninstall()
+            && Configuration::deleteByName(GeneralConfiguration::getConfigurationKey(GeneralType::FIELD_EXAMPLE_SETTING))
+        ;
+    }
+
+    public function getContent(): void
+    {
+        $container = SymfonyContainer::getInstance();
+
+        if ($container != null) {
+            /** @var UrlGeneratorInterface $router */
+            $router = $container->get('router');
+
+            Tools::redirectAdmin($router->generate('kj_module_bedrock_settings'));
+        }
+    }
+
+    public function hookActionFrontControllerSetMedia(): void
+    {
+        $controller = $this->context->controller;
+
+        if (!$controller instanceof FrontController) {
+            return;
+        }
+
+        if (file_exists(_PS_MODULE_DIR_ . $this->name . '/views/css/front.css')) {
+            $controller->registerStylesheet(
+                'modules-' . $this->name . '-front',
+                'modules/' . $this->name . '/views/css/front.css',
+                ['media' => 'all', 'priority' => 150]
+            );
+        }
+
+        if (file_exists(_PS_MODULE_DIR_ . $this->name . '/views/js/front.js')) {
+            $controller->registerJavascript(
+                'modules-' . $this->name . '-front',
+                'modules/' . $this->name . '/views/js/front.js',
+                ['position' => 'bottom', 'priority' => 150, 'attribute' => 'defer']
+            );
+        }
     }
 }

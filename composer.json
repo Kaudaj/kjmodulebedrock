@@ -12,22 +12,33 @@
     }
   ],
   "require": {
-    "php": ">=7.1.0"
+    "php": ">=7.2.0"
   },
   "require-dev": {
     "phpro/grumphp-shim": "^1.5",
-    "phpstan/phpstan": "^1.8",
+    "phpstan/phpstan": "^1.12",
     "phpstan/phpstan-doctrine": "^1.3",
     "phpstan/extension-installer": "^1.1",
-    "prestashop/php-dev-tools": "^4.2"
+    "prestashop/php-dev-tools": "^4.2",
+    "phpunit/phpunit": "^9.6"
   },
   "autoload": {
     "psr-4": {
       "Kaudaj\\Module\\ModuleBedrock\\": "src/"
     }
   },
+  "autoload-dev": {
+    "psr-4": {
+      "Kaudaj\\Module\\ModuleBedrock\\Tests\\": "tests/php/"
+    }
+  },
   "config": {
-    "prepend-autoloader": false
+    "prepend-autoloader": false,
+    "autoloader-suffix": "Kjmodulebedrock",
+    "allow-plugins": {
+      "phpro/grumphp-shim": true,
+      "phpstan/extension-installer": true
+    }
   },
   "extra": {
     "grumphp": {
@@ -40,6 +51,9 @@
     ],
     "header-stamp": [
       "vendor/bin/header-stamp --extensions=php,js,css,scss,tpl,html.twig,vue --exclude=vendor,node_modules --license=_dev/header-stamp/afl.txt"
+    ],
+    "test": [
+      "phpunit -c tests/php/phpunit.xml.dist"
     ]
   }
 }

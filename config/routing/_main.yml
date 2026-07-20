@@ -1,0 +1,10 @@
+kj_module_bedrock:
+  path: /
+  methods: [GET]
+  defaults:
+    _controller: 'Kaudaj\Module\ModuleBedrock\Controller\Admin\SettingsController::indexAction'
+    _legacy_controller: KJModuleBedrockSettings
+
+kj_module_bedrock_settings_routing:
+  resource: "settings.yml"
+  prefix: /settings

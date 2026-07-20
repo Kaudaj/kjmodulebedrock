@@ -1,6 +1,7 @@
 parameters:
   paths:
     - ../../kjmodulebedrock.php
+    - ../../src
   ignoreErrors:
     # - "#Insert your error here (don't forget to escape special characters like the following hash: \\#)#"
   reportUnmatchedIgnoredErrors: true

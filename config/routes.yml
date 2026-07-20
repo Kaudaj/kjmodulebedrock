@@ -1,1 +1,3 @@
-
+kj_module_bedrock_routing:
+  resource: "routing/_main.yml"
+  prefix: /kjmodulebedrock

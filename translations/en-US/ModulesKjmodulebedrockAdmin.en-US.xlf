@@ -7,9 +7,24 @@
         <target>Module Bedrock</target>
         <note>Line: </note>
       </trans-unit>
-      <trans-unit id="8b688592443e7ec75f2d835e6740473c">
-        <source>        Boost module development by providing a solid bedrock.</source>
+      <trans-unit id="51f6da053f85a138e592dc581e7c808b">
+        <source>Boost module development by providing a solid bedrock.</source>
         <target>Boost module development by providing a solid bedrock.</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="de62775a71fc2bf7a13d7530ae24a7ed">
+        <source>General settings</source>
+        <target>General settings</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="9e854fa28a3ad9f9fad2c1257c131ff0">
+        <source>Example setting</source>
+        <target>Example setting</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="e76524f40ef659c30ea40f8333a1584b">
+        <source>Sample value stored in the shop configuration. Replace it with your own settings.</source>
+        <target>Sample value stored in the shop configuration. Replace it with your own settings.</target>
         <note>Line: </note>
       </trans-unit>
     </body>

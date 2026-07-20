@@ -21,8 +21,8 @@ const path = require('path');
 
 module.exports = (env, argv) => ({
   entry: {
-    front: './css/front/front.scss',
-    back: './css/back/back.scss',
+    front: './js/front/index.js',
+    back: './js/back/index.js',
   },
   output: {
     filename: '[name].js',
@@ -38,7 +38,6 @@ module.exports = (env, argv) => ({
       {
         test: /\.s?css$/,
         use: [
-          'style-loader',
           {
             loader: MiniCssExtractPlugin.loader,
             options: {

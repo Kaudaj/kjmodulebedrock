@@ -1,0 +1,14 @@
+kj_module_bedrock_settings:
+  path: /
+  methods: [GET]
+  defaults:
+    _controller: 'Kaudaj\Module\ModuleBedrock\Controller\Admin\SettingsController::indexAction'
+    _legacy_controller: KJModuleBedrockSettings
+
+kj_module_bedrock_settings_general_save:
+  path: /general
+  methods: [POST, PATCH]
+  defaults:
+    _controller: 'Kaudaj\Module\ModuleBedrock\Controller\Admin\SettingsController::processGeneralFormAction'
+    _legacy_controller: KJModuleBedrockSettings
+    _legacy_link: KJModuleBedrockSettings:updateGeneral
