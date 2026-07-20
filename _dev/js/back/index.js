@@ -15,10 +15,23 @@
  * @copyright Since 2019 Kaudaj
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  */
+import { createApp } from 'vue';
+import '@prestashopcorp/puik-theme/base';
+import '@prestashopcorp/puik-theme/font';
+import '@prestashopcorp/puik-theme/puik-alert';
+import '@prestashopcorp/puik-theme/puik-button';
 import '../../css/back/back.scss';
+import App from './App.vue';
 
 // Entry point of the back-office bundle, loaded on the module settings page.
-// Replace this marker with your module logic.
 document.addEventListener('DOMContentLoaded', () => {
   document.body.classList.add('kj-module-bedrock-back-loaded');
+
+  const host = document.getElementById('kj-module-bedrock-vue-app');
+
+  if (host) {
+    createApp(App, { exampleSetting: host.dataset.exampleSetting || '' }).mount(
+      host,
+    );
+  }
 });

@@ -6,7 +6,7 @@ grumphp:
       configuration: tests/php/phpstan.dist.neon
     eslint:
       bin: _dev/node_modules/.bin/eslint
-      config: _dev/.eslintrc.js
+      config: _dev/eslint.config.js
     header-stamp:
       metadata:
         task: shell

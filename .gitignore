@@ -13,6 +13,7 @@ node_modules/
 !/views/css/README.md
 /views/js/*
 !/views/js/README.md
+/views/assets/
 
 ### Tests ###
 .php-cs-fixer.cache

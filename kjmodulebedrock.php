@@ -43,9 +43,9 @@ class KJModuleBedrock extends Module
     {
         $this->name = 'kjmodulebedrock';
         $this->tab = 'others';
-        $this->version = '1.1.0';
+        $this->version = '2.0.0';
         $this->author = 'Kaudaj';
-        $this->ps_versions_compliancy = ['min' => '8.0.0', 'max' => '8.99.99'];
+        $this->ps_versions_compliancy = ['min' => '9.0.0', 'max' => '9.99.99'];
 
         $this->bootstrap = true;
 
@@ -107,7 +107,13 @@ class KJModuleBedrock extends Module
 
     public function hookActionFrontControllerSetMedia(): void
     {
-        $controller = $this->context->controller;
+        $context = $this->context;
+
+        if ($context === null) {
+            return;
+        }
+
+        $controller = $context->controller;
 
         if (!$controller instanceof FrontController) {
             return;

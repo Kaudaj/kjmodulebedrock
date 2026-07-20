@@ -23,69 +23,49 @@ declare(strict_types=1);
 namespace Kaudaj\Module\ModuleBedrock\Controller\Admin;
 
 use PrestaShop\PrestaShop\Core\Form\FormHandlerInterface;
-use PrestaShopBundle\Controller\Admin\FrameworkBundleAdminController;
-use PrestaShopBundle\Security\Annotation\AdminSecurity;
-use PrestaShopBundle\Security\Annotation\DemoRestricted;
+use PrestaShopBundle\Controller\Admin\PrestaShopAdminController;
+use PrestaShopBundle\Security\Attribute\AdminSecurity;
+use PrestaShopBundle\Security\Attribute\DemoRestricted;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class SettingsController extends FrameworkBundleAdminController
+class SettingsController extends PrestaShopAdminController
 {
-    /**
-     * @AdminSecurity(
-     *     "is_granted('read', request.get('_legacy_controller'))",
-     *     message="You do not have permission to access this."
-     * )
-     */
+    public function __construct(
+        private readonly FormHandlerInterface $generalFormHandler,
+    ) {
+    }
+
+    #[AdminSecurity("is_granted('read', request.get('_legacy_controller'))", message: 'You do not have permission to access this.')]
     public function indexAction(): Response
     {
-        $generalForm = $this->getGeneralFormHandler()->getForm();
+        $generalForm = $this->generalFormHandler->getForm();
 
         return $this->render('@Modules/kjmodulebedrock/views/templates/back/layouts/settings.html.twig', [
             'general_form' => $generalForm->createView(),
-            'layoutTitle' => $this->trans('Module Bedrock', 'Modules.Kjmodulebedrock.Admin'),
+            'layoutTitle' => $this->trans('Module Bedrock', [], 'Modules.Kjmodulebedrock.Admin'),
         ]);
     }
 
-    /**
-     * @AdminSecurity(
-     *     "is_granted('update', request.get('_legacy_controller'))",
-     *     message="You do not have permission to update this.",
-     *     redirectRoute="kj_module_bedrock_settings"
-     * )
-     *
-     * @DemoRestricted(redirectRoute="kj_module_bedrock_settings")
-     */
+    #[AdminSecurity("is_granted('update', request.get('_legacy_controller'))", message: 'You do not have permission to update this.', redirectRoute: 'kj_module_bedrock_settings')]
+    #[DemoRestricted(redirectRoute: 'kj_module_bedrock_settings')]
     public function processGeneralFormAction(Request $request): RedirectResponse
     {
-        $formHandler = $this->getGeneralFormHandler();
-
-        $form = $formHandler->getForm();
+        $form = $this->generalFormHandler->getForm();
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $data = $form->getData();
-            $errors = is_array($data) ? $formHandler->save($data) : [];
+            $errors = is_array($data) ? $this->generalFormHandler->save($data) : [];
 
             if (0 === count($errors)) {
-                $this->addFlash('success', $this->trans('Successful update', 'Admin.Notifications.Success'));
+                $this->addFlash('success', $this->trans('Successful update', [], 'Admin.Notifications.Success'));
             } else {
-                $this->flashErrors($errors);
+                $this->addFlashErrors($errors);
             }
         }
 
         return $this->redirectToRoute('kj_module_bedrock_settings');
-    }
-
-    private function getGeneralFormHandler(): FormHandlerInterface
-    {
-        $formHandler = $this->get('kaudaj.module.module_bedrock.form.data_handler.general');
-
-        if (!$formHandler instanceof FormHandlerInterface) {
-            throw new \RuntimeException('General settings form handler is not available.');
-        }
-
-        return $formHandler;
     }
 }

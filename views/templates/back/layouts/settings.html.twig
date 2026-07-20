@@ -40,6 +40,21 @@
       </div>
     </div>
   {{ form_end(general_form) }}
+
+  <div class="card mt-3" id="kj-module-bedrock-vue-demo-card">
+    <h3 class="card-header">
+      <i class="material-icons">widgets</i>
+      {{ 'UI kit playground'|trans }}
+    </h3>
+    <div class="card-body">
+      <div
+        id="kj-module-bedrock-vue-app"
+        data-example-setting="{{ general_form.vars.value.example_setting|default('') }}"
+      >
+        <div class="text-muted">{{ 'Loading the Vue 3 + PrestaShop UI Kit example...'|trans }}</div>
+      </div>
+    </div>
+  </div>
 {% endblock %}
 
 {% block stylesheets %}
@@ -51,5 +66,5 @@
 {% block javascripts %}
   {{ parent() }}
 
-  <script src="{{ asset('../modules/kjmodulebedrock/views/js/back.js') }}" defer></script>
+  <script type="module" src="{{ asset('../modules/kjmodulebedrock/views/js/back.js') }}"></script>
 {% endblock %}

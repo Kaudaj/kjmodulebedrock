@@ -23,7 +23,7 @@ declare(strict_types=1);
 // Unit bootstrap: no database. The module main file is guarded by `_PS_VERSION_`,
 // so the constant must exist before any autoload happens.
 if (!defined('_PS_VERSION_')) {
-    define('_PS_VERSION_', getenv('_PS_VERSION_') ?: '8.0.0');
+    define('_PS_VERSION_', getenv('_PS_VERSION_') ?: '9.0.0');
 }
 
 // Module autoloader (PSR-4 Kaudaj\Module\ModuleBedrock\ -> src/).

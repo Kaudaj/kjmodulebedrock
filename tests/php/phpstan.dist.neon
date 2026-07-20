@@ -5,6 +5,9 @@ parameters:
   ignoreErrors:
     # - "#Insert your error here (don't forget to escape special characters like the following hash: \\#)#"
   reportUnmatchedIgnoredErrors: true
+  # Core phpdoc nullability differs between PS 9.0 and 9.1 (ex. Context::$context):
+  # keep runtime null-guards without "always true/false" false positives.
+  treatPhpDocTypesAsCertain: false
   level: 9
 
 includes:

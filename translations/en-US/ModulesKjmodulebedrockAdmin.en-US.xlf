@@ -27,6 +27,16 @@
         <target>Sample value stored in the shop configuration. Replace it with your own settings.</target>
         <note>Line: </note>
       </trans-unit>
+      <trans-unit id="7c7714dfe28c3b105cfb3222f9d2d6c6">
+        <source>UI kit playground</source>
+        <target>UI kit playground</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="fc3e08599b2afd0f8054c8a8c3695399">
+        <source>Loading the Vue 3 + PrestaShop UI Kit example...</source>
+        <target>Loading the Vue 3 + PrestaShop UI Kit example...</target>
+        <note>Line: </note>
+      </trans-unit>
     </body>
   </file>
 </xliff>

@@ -2,6 +2,16 @@ services:
   _defaults:
     public: true
 
+  # Controller as a service (Symfony 6): constructor injection, container wired
+  # through the service_subscriber tag (required by AbstractController helpers).
+  Kaudaj\Module\ModuleBedrock\Controller\Admin\SettingsController:
+    autowire: true
+    arguments:
+      - '@kaudaj.module.module_bedrock.form.data_handler.general'
+    tags:
+      - controller.service_arguments
+      - container.service_subscriber
+
   kaudaj.module.module_bedrock.form.type.general:
     class: Kaudaj\Module\ModuleBedrock\Form\Type\GeneralType
     parent: form.type.translatable.aware

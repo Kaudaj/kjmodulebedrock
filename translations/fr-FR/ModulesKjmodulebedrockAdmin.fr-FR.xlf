@@ -27,6 +27,16 @@
         <target>Valeur d'exemple enregistrée dans la configuration de la boutique. Remplacez-la par vos propres paramètres.</target>
         <note>Line: </note>
       </trans-unit>
+      <trans-unit id="7c7714dfe28c3b105cfb3222f9d2d6c6">
+        <source>UI kit playground</source>
+        <target>Bac à sable du UI kit</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="fc3e08599b2afd0f8054c8a8c3695399">
+        <source>Loading the Vue 3 + PrestaShop UI Kit example...</source>
+        <target>Chargement de l'exemple Vue 3 + PrestaShop UI Kit...</target>
+        <note>Line: </note>
+      </trans-unit>
     </body>
   </file>
 </xliff>
